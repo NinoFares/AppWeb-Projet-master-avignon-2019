@@ -47,18 +47,4 @@ npm run client
 # Server runs on http://localhost:5000 and client on http://localhost:3000
 ```
 
-## App Info
-
-### Author
-
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
-
-### Version
-
-1.0.0
-
-### License
-
-This project is licensed under the MIT License
 # Projet_Master_v2
