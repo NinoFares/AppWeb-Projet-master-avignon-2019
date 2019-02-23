@@ -24,7 +24,7 @@ var sqlQueryTest = mySqlClient.query(selectQueryTest);
 sqlQueryTest.on("result",(row)=>{
      console.log(row);
 })
-sqlQuery.on("end",()=>{
+sqlQueryTest.on("end",()=>{
      mySqlClient.end();
 })
 sqlQueryTest.on("error",(error)=>{
