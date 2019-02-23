@@ -48,3 +48,7 @@ npm run client
 ```
 
 # Projet_Master_v2
+
+Dépendences nécéssaires :
+``` bash
+npm install mysql
