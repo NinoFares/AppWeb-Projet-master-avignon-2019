@@ -27,6 +27,6 @@ sqlQueryTest.on("result",(row)=>{
 sqlQuery.on("end",()=>{
      mySqlClient.end();
 })
-sqlQuery.on("error",(error)=>{
+sqlQueryTest.on("error",(error)=>{
      console.log(error);
 })
