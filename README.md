@@ -1,10 +1,30 @@
+# N'oubliez pas de mettre les commentaires a chaque fois que vous travaillez dans un fichier en écrivant : ce que vous avez ajouter, quelque détails, et ce qui reste a faire.
+
+# Semaine 1 :
+
+# Mobile :
+
+    Lier la base de donnée.
+    Gérer l'authentification.
+
+# Web :
+
+    Gérer l'authentification.
+    Gestion des rôles.
+    Gestions des routes.
+    Interface d'inscription.
+
+Pour toute suggestion veuillez les écrire ici.
+
+1 . Ma Premiere suggestion serai de : A chaque fois que vous commencer une partie vous ecrivez votre nom a coté de cette partie en haut
+
 # React Express Starter Pack
 
-> Create full stack apps with React and Express. Run your client and server with a single command. 
+> Create full stack apps with React and Express. Run your client and server with a single command.
 
 ### Redux Version
 This version does not include Redux
-[Click Here For Redux Version](https://github.com/bradtraversy/react_redux_express_starter) 
+[Click Here For Redux Version](https://github.com/bradtraversy/react_redux_express_starter)
 
 ## Quick Start
 
