@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl} from "react-bootstrap";
 import "./Login.css";
+import * as axios from 'axios';
 
 export default class Login extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ export default class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      statusMsg: ""
     };
   }
 
@@ -22,8 +24,21 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit = event => {
+  handleSubmit =  event => {
     event.preventDefault();
+    var payload = {
+         email : this.state.email,
+         password : this.state.password
+    }
+    axios.post('/login',payload)
+    .then((res)=>{
+         console.log(res.data.statusMsg)
+         this.setState({statusMsg:res.data.statusMsg});
+    })
+    .catch((err)=>{
+         console.log(err)
+    })
+
   }
 
   render() {
@@ -56,6 +71,8 @@ export default class Login extends Component {
             Login
           </Button>
         </form>
+        <br /><br />
+        <p>{this.state.statusMsg}</p>
       </div>
     );
   }

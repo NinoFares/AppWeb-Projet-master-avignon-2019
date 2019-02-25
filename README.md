@@ -49,12 +49,15 @@ npm run client
 
 # Projet_Master_v2
 
-Dépendences nécéssaires :
-Serveur :
+#Dépendences nécéssaires :
+
+##Serveur :
      ``` bash
      npm install mysql
+     const bodyParser = require('body-parser');
      ```
-Client :
+##Client :
      ``` bash
      npm install react-bootstrap bootstrap
+     npm install axios
      ```
