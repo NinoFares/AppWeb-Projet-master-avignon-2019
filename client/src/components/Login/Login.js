@@ -1,18 +1,24 @@
 import React, { Component } from "react";
-import { Button, FormGroup, FormControl} from "react-bootstrap";
+import {Button, FormGroup, FormControl, ButtonGroup} from "react-bootstrap";
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
 import "./Login.css";
 
-import * as axios from 'axios';
+import {userActions} from "../../_actions";
 
 class Login extends Component {
   constructor(props) {
     super(props);
 
+    //this.props.dispatch(userActions.logout())
+
     this.state = {
       email: "",
-      password: "",
-      statusMsg: ""
+      password: ""
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   validateForm() {
@@ -27,56 +33,68 @@ class Login extends Component {
 
   handleSubmit =  event => {
     event.preventDefault();
-    var payload = {
-         email : this.state.email,
-         password : this.state.password
-    }
-    axios.post('/login',payload)
-    .then((res)=>{
-         console.log(res.data.statusMsg)
-         this.setState({statusMsg:res.data.statusMsg});
-    })
-    .catch((err)=>{
-         console.log(err)
-    })
 
-  }
+    const {email, password } = this.state;
+    const { dispatch } = this.props;
+    if(email && password){
+        dispatch(userActions.login(email,password))
+    }
+  };
 
   render() {
-    return (
-      <div className="Login">
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="email" bsSize="large">
-            <label>Email</label>
-            <FormControl
-              autoFocus
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
-            <label>Password</label>
-            <FormControl
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
-            />
-          </FormGroup>
-          <Button
-            block
-            bsSize="large"
-            disabled={!this.validateForm()}
-            type="submit"
-          >
-            Login
-          </Button>
-        </form>
-        <br /><br />
-        <p>{this.state.statusMsg}</p>
-      </div>
-    );
+      return (
+          <div className="Login">
+              <form onSubmit={this.handleSubmit}>
+                  <FormGroup controlId="email" bsSize="large" >
+                      <label>Email</label>
+                      <FormControl
+                          autoFocus
+                          type="email"
+                          value={this.state.email}
+                          onChange={this.handleChange}
+
+                      />
+                  </FormGroup>
+                  <FormGroup controlId="password" bsSize="large">
+                      <label>Password</label>
+                      <FormControl
+                          value={this.state.password}
+                          onChange={this.handleChange}
+                          type="password"
+                      />
+                  </FormGroup>
+                  <ButtonGroup
+                      size="lg"
+                  >
+                      <Button
+                          size="lg"
+                          disabled={!this.validateForm()}
+                          type="submit"
+                      >
+                          Login
+                      </Button>
+                      <Link
+                          to="/register"
+                      >
+                          <Button
+                              size="lg"
+                          >Register</Button>
+                      </Link>
+                  </ButtonGroup>
+              </form>
+              <br/><br/>
+              <p>{this.state.statusMsg}</p>
+          </div>
+      );
   }
 }
 
-export {Login};
+function mapStateToProps(state){
+    const {loggingIn} = state.authentification;
+    return{
+        loggingIn
+    };
+}
+
+const connectedLogin = connect(mapStateToProps)(Login);
+export { connectedLogin as Login }

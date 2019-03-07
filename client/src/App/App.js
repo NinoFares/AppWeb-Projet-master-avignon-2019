@@ -4,16 +4,22 @@ import {connect} from 'react-redux';
 import {Router, Route} from 'react-router-dom'
 
 import { history } from '../_helpers';
-import { Home } from '../components/Home'
+import { Home,HomeAdmin,HomeUser } from '../components/Home'
 import { Login } from '../components/Login';
+import { Register } from '../components/Register'
 import { PrivateRoute } from "../components/Routes";
+import { alertActions } from "../_actions";
 
 class App extends Component {
 
     constructor(props){
-        super(props)
+        super(props);
 
         const { dispatch } = this.props;
+        history.listen((location, action) => {
+             // clear alert on location change
+             dispatch(alertActions.clear());
+         });
 
     }
 
@@ -42,6 +48,15 @@ class App extends Component {
                                   <Route
                                   path="/login" component={Login}
                                   />
+                                  <Route
+                                      path="/register" component={Register}
+                                  />
+                                  <Route
+                                        path="/HomeAdmin" component={HomeAdmin}
+                                  />
+                                  <Route
+                                      path="/HomeUser" component={HomeUser}
+                                  />
                               </div>
                           </Router>
                       </div>
@@ -51,7 +66,6 @@ class App extends Component {
       );
   }
 }
-
 function mapStateToProps(state){
     const { alert } = state;
     return{

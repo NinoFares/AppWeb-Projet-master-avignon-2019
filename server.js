@@ -43,6 +43,7 @@ app.post('/login',(request,response)=>{
      usermail = request.body.email;
      password = request.body.password;
 
+
      pool.getConnection((err,connection)=>{
           if(err) throw err;
           connection.query("select * from users where email = '"+usermail+"'",(err,result)=>{
@@ -62,7 +63,7 @@ app.post('/login',(request,response)=>{
                     responseData.statusMsg = 'Connexion échoué : informations de connexions érronés';
                     responseData.connexionStatut = false;
                }
-               response.send(responseData);
+               response.send(JSON.stringify(responseData));
           })
      })
 });
