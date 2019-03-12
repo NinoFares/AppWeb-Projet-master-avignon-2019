@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 
+import {UserNav} from '../Nav';
+import {history} from "../../_helpers";
 
 class HomeUser extends Component{
     constructor(props) {
@@ -14,6 +16,9 @@ class HomeUser extends Component{
         return(
             <div>
                 <h1>User Page</h1>
+
+                <UserNav/>
+
             </div>
         )
     }

@@ -2,6 +2,7 @@ import { userConstants } from "../_constants";
 import { userService } from "../_services";
 import { alertActions } from './';
 import { history } from "../_helpers";
+import {store} from "../_helpers";
 
 export const userActions = {
     login,
@@ -13,16 +14,19 @@ function login(username,password){
 
     return dispatch => {
         dispatch(request({username}));
-
         userService.login(username,password)
             .then(
                 user =>{
                     dispatch(success(user));
-                    history.push();
-                },
-                error => {
+                    if(store.getState(user.role) === 'ROLE_ADMIN')
+                        history.push("/HomeAdmin");
+                    else
+                        history.push('/HomeUser')
+                })
+            .catch(error => {
                     dispatch(faillure(error.toString()));
                     dispatch(alertActions.error(error.toString()));
+                    return Promise.reject()
                 }
             );
     };
@@ -34,6 +38,7 @@ function login(username,password){
 
 function logout(){
     userService.logout();
+    history.push('/')
     return {type:userConstants.LOGOUT};
 }
 

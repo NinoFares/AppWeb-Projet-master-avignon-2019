@@ -26,43 +26,45 @@ class App extends Component {
   render() {
         const { alert } = this.props;
       return (
-          <div className="jumbotron">
-              <div className="container">
-                  <header className="App-header">
-                      <h1>Gestion de conférence</h1>
-                      <div>
-                          {alert.message &&
-                          <div
-                              className={`alert ${alert.type}`}
-                          >
-                              {alert.message}
+          <Router history={history}>
+              <div>
+                      <div className="jumbotron">
+                          <div className="container">
+                              <header className="App-header">
+                                  <h1>Gestion de conférence</h1>
+                                  <div>
+                                      {alert.message &&
+                                      <div
+                                          className={`alert ${alert.type}`}
+                                      >
+                                          {alert.message}
+                                      </div>
+                                      }
+                                      <PrivateRoute
+                                          exact
+                                          path="/"
+                                          component={Home}
+                                      />
+                                      <Route
+                                          path="/login" component={Login}
+                                      />
+                                      <Route
+                                          path="/register" component={Register}
+                                      />
+                                  </div>
+                              </header>
                           </div>
-                          }
-                          <Router history={history}>
-                              <div>
-                                  <PrivateRoute
-                                    exact
-                                    path="/"
-                                    component={Home}
-                                  />
-                                  <Route
-                                  path="/login" component={Login}
-                                  />
-                                  <Route
-                                      path="/register" component={Register}
-                                  />
-                                  <Route
-                                        path="/HomeAdmin" component={HomeAdmin}
-                                  />
-                                  <Route
-                                      path="/HomeUser" component={HomeUser}
-                                  />
-                              </div>
-                          </Router>
                       </div>
-                  </header>
+                  <div className="container">
+                      <Route
+                          path="/HomeAdmin" component={HomeAdmin}
+                      />
+                      <Route
+                          path="/HomeUser" component={HomeUser}
+                      />
+                  </div>
               </div>
-          </div>
+          </Router>
       );
   }
 }

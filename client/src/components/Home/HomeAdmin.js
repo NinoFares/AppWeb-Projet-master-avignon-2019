@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 
+import {AdminNav} from "../Nav";
+
 
 class HomeAdmin extends Component{
 
@@ -15,6 +17,7 @@ class HomeAdmin extends Component{
         return(
             <div>
                 <h1>Admin Page</h1>
+                <AdminNav/>
             </div>
         )
     }

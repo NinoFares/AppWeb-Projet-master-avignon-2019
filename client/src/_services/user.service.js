@@ -15,11 +15,20 @@ function login(username,password){
         '/login',
         payload)
         .then(response => {
-            let user = handleResponse(response);
-            console.log(user);
-             localStorage.setItem('user',JSON.stringify(user));
-            })
-        .catch(console.log("Error Axios Post"));
+            return handleResponse(response);
+        })
+        .catch(error => {
+                return Promise.reject("Authentification refusé");
+            }
+        ).then( user =>{
+            if(user.name) {
+            localStorage.setItem('user', JSON.stringify(user));
+            return user;
+            }
+        else{
+            return Promise.reject("Authentification refusé")
+         }
+        });
 }
 
 function logout(){
@@ -34,36 +43,24 @@ function register(user){
         .then(response =>{
             console.log(response)
         })
-        .catch(console.log("Error Axios Post"));
+        .catch();
 }
 
 
-
-function handleError(error){
-    logout();
-    //location.reload(true);
-    return Promise.reject(error);
-}
 
 function handleResponse(response) {
 
-
-
-    return response.text().then(text => {
-
-
-
-        const data = text && JSON.parse(text);
-        if (!response.ok) {
+    if (response.data.name){
+        let data = response.data;
+        return data;
+    }
+    else{
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
                 logout();
+                window.location.reload(true);
             }
-
-            const error = (data && data.message) || response.statusText;
+            const error = response.data;
             return Promise.reject(error);
         }
-
-        return data;
-    });
 }

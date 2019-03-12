@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Button, FormGroup, FormControl, ButtonGroup} from "react-bootstrap";
-import { Link } from 'react-router-dom'
+import { Link,Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import "./Login.css";
 
@@ -33,13 +33,14 @@ class Login extends Component {
 
   handleSubmit =  event => {
     event.preventDefault();
-
     const {email, password } = this.state;
     const { dispatch } = this.props;
     if(email && password){
-        dispatch(userActions.login(email,password))
+        dispatch(userActions.login(email,password));
     }
   };
+
+
 
   render() {
       return (

@@ -257,7 +257,7 @@ Then add the block below to your `launch.json` file and put it inside the `.vsco
 {
   "version": "0.2.0",
   "configurations": [{
-    "name": "Chrome",
+    h"name": "Chrome",
     "type": "chrome",
     "request": "launch",
     "url": "http://localhost:3000",

@@ -57,13 +57,45 @@ app.post('/login',(request,response)=>{
                     responseData.isEnabled = result[0].isEnabled;
                     responseData.statusMsg = 'Connexion réussie : bonjour '+result[0].name;
                     responseData.connexionStatut = true;
+
+                    response.send(JSON.stringify(responseData));
                }
                else {
                     //Authentification échoué
-                    responseData.statusMsg = 'Connexion échoué : informations de connexions érronés';
-                    responseData.connexionStatut = false;
+                    response.send("Authentification réfusé")
                }
-               response.send(JSON.stringify(responseData));
+          })
+     })
+});
+
+/***********************      Route qui import des utilisateurs  ***********************/
+app.post('/users',(request,response)=>{
+
+
+     pool.getConnection((err,connection)=>{
+          if(err) throw err;
+          connection.query("select * from users",(err,result)=>{
+               connection.release();
+               if(err) throw err;
+               else{
+                    response.send(JSON.stringify(result));
+               }
+          })
+     })
+});
+
+/***********************      Route qui import des conferences  ***********************/
+app.post('/conferences',(request,response)=>{
+
+
+     pool.getConnection((err,connection)=>{
+          if(err) throw err;
+          connection.query("select * from conference",(err,result)=>{
+               connection.release();
+               if(err) throw err;
+               else{
+                    response.send(JSON.stringify(result));
+               }
           })
      })
 });
