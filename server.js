@@ -99,3 +99,47 @@ app.post('/conferences',(request,response)=>{
           })
      })
 });
+
+/***********************      Route qui set des conferences  ***********************/
+
+
+app.post('/addConference',(request,response)=>{
+
+     /**
+      * Fonction utilitaire pour rendre en SQL Format
+      **/
+     function twoDigits(d) {
+          if(0 <= d && d < 10) return "0" + d.toString();
+          if(-10 < d && d < 0) return "-0" + (-1*d).toString();
+          return d.toString();
+     }
+
+     /**
+      * Fonction qui rend une date en SQL format
+      **/
+     Date.prototype.toMysqlFormat = function() {
+          return this.getUTCFullYear() + "-" + twoDigits(1 + this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
+     };
+
+     let name = request.body.name;
+     let id_user = request.body._id;
+     let description = request.body.description;
+     let logo = "NULL";
+     const date_begin = new Date(request.body.date_begin).toMysqlFormat();
+     const date_end = new Date(request.body.date_end).toMysqlFormat();
+     let topic = request.body.topic
+
+
+     let sql = "insert into conference (name,description,logo,date_begin,date_end,topic,id_user,valide) values ('"+name+"','"+description+"','"+logo+"','"+date_begin+"','"+date_end+"','"+topic+"','"+id_user+"',0)";
+
+     pool.getConnection((err,connection)=>{
+          if(err) throw err;
+          connection.query(sql,(err,result)=>{
+               connection.release();
+               if(err) throw err;
+               else{
+                    response.send();
+               }
+          })
+     })
+});

@@ -83,8 +83,6 @@ class Login extends Component {
                       </Link>
                   </ButtonGroup>
               </form>
-              <br/><br/>
-              <p>{this.state.statusMsg}</p>
           </div>
       );
   }

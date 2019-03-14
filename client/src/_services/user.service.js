@@ -4,6 +4,7 @@ export const userService = {
     login,
     logout,
     register,
+    addConference
 };
 
 function login(username,password){
@@ -46,6 +47,19 @@ function register(user){
         .catch();
 }
 
+function addConference(payload){
+    return axios.post('/addConference',payload)
+        .then(response =>{
+            return response.data;
+        })
+        .catch(err => {
+            return Promise.reject(err)
+        })
+}
+
+function getConferece(id){
+    return
+}
 
 
 function handleResponse(response) {

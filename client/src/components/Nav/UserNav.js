@@ -3,10 +3,13 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 
 // Be sure to include styles at some point, probably during your bootstraping
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import './index.css'
 import {BrowserRouter,Route} from 'react-router-dom';
 import {HomeUser} from "../Home";
 import { history } from "../../_helpers";
+import {userActions} from "../../_actions";
 
+import {AddConference} from "../AddConference";
 
 
 class UserNav extends Component{
@@ -19,6 +22,10 @@ class UserNav extends Component{
         }
     }
 
+    logout(){
+        userActions.logout();
+    }
+
     render() {
         return(
             <BrowserRouter>
@@ -26,7 +33,7 @@ class UserNav extends Component{
                     <React.Fragment>
                         <SideNav
                             onSelect={(selected) => {
-                                const to = '/' + selected;
+                                const to = '/HomeUser/' + selected;
                                 if (location.pathname !== to) {
                                     history.push(to);
                                 }
@@ -42,19 +49,36 @@ class UserNav extends Component{
                                         Home
                                     </NavText>
                                 </NavItem>
-                                <NavItem eventKey="devices">
+                                <NavItem eventKey="AddConference">
                                     <NavIcon>
-                                        <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
                                     </NavIcon>
                                     <NavText>
-                                        Devices
+                                        Nouvelle Conference
+                                    </NavText>
+                                </NavItem>
+                                <NavItem eventKey="ListConferences">
+                                    <NavIcon>
+                                        <i className=" fas fa-list-ul" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Liste des Conferences
+                                    </NavText>
+                                </NavItem>
+                                <NavItem eventKey="Logout" onClick={this.logout}>
+                                    <NavIcon>
+                                        <i className="fas fa-power-off" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Log Out
                                     </NavText>
                                 </NavItem>
                             </SideNav.Nav>
                         </SideNav>
                         <main>
                             <Route path="/" exact component={props => <HomeUser />} />
-                            <Route path="/home" component={props => <HomeUser />} />
+                            <Route path="/HomeUser/AddConference" component={props => <AddConference />} />
+
                         </main>
                     </React.Fragment>
                 )}
