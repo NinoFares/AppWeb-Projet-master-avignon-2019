@@ -11,9 +11,22 @@ class UserProfile extends Composant{
         }
     }
 
+    componentDidMount() {
+        adminServices.getProfil()
+            .then(result =>{
+            this.setState(()=>{
+                return {data:result}
+            })
+    })
+    .catch(err =>{
+            console.log(err);
+    })
+    }
+
     render() {
         return (
             <div>
+
 
             </div>
         );

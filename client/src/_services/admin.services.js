@@ -3,6 +3,8 @@ import axios from 'axios';
 export const adminServices = {
     getUsers,
     getConferences
+
+
 }
 
 function getUsers(){
@@ -24,3 +26,6 @@ function getConferences(){
             return Promise.reject("Erreur, import conferences")
         })
 }
+
+
+

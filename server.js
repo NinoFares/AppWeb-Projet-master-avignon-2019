@@ -16,6 +16,7 @@ var pool = mysql.createPool({
 });
 const port = 5000;
 var responseData = {};
+var responseProfil ={};
 
 //Configuration serveur
 app.use(bodyParser.urlencoded({extended: true }));
@@ -142,4 +143,24 @@ app.post('/addConference',(request,response)=>{
                }
           })
      })
+});
+
+// TODO: est ce que mon code pour l'importaion du profil est bon?
+//Mise à jour de profil
+// Affichage des informations enregistrées dans la base
+app.post('/profil', function(request, response) {
+
+     identifiant=request.body.id;
+     pool.getConnection((err,connection)=>{
+          if(err) throw err;
+          connection.query("select * from users where id= '"+identifiant+"'",(err,result)=>{
+               connection.release();
+               if(err) throw err;
+               else{
+                    responseProfil.email = result.rows[0].email;
+                    //responseProfil.prenom = result.rows[0].prenom;
+               }
+          })
+     })
+
 });

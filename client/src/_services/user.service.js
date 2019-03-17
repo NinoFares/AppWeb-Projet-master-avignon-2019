@@ -4,7 +4,9 @@ export const userService = {
     login,
     logout,
     register,
-    addConference
+    addConference,
+    getProfil
+
 };
 
 function login(username,password){
@@ -57,9 +59,21 @@ function addConference(payload){
         })
 }
 
-function getConferece(id){
-    return
+function getProfil(id) {
+    return axios.post('/profil',
+        JSON.stringify(id))
+        .then(response =>{
+        return response.data;
+    })
+    .catch (err => {
+        return Promise.reject("Erreur, import profil")
+    })
 }
+
+
+//function getConferece(id){
+  //  return
+//}
 
 
 function handleResponse(response) {
