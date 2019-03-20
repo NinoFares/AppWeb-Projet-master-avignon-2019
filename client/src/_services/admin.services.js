@@ -24,3 +24,4 @@ function getConferences(){
             return Promise.reject("Erreur, import conferences")
         })
 }
+

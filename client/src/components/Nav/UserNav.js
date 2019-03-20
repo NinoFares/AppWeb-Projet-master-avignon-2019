@@ -10,6 +10,8 @@ import { history } from "../../_helpers";
 import {userActions} from "../../_actions";
 
 import {AddConference} from "../AddConference";
+import {ListConferences} from "../ListConferences";
+import withAuth from "../Routes";
 
 
 class UserNav extends Component{
@@ -76,9 +78,9 @@ class UserNav extends Component{
                             </SideNav.Nav>
                         </SideNav>
                         <main>
-                            <Route path="/" exact component={props => <HomeUser />} />
-                            <Route path="/HomeUser/AddConference" component={props => <AddConference />} />
-
+                            <Route path="/" exact component={withAuth(props => <HomeUser />)} />
+                            <Route path="/HomeUser/AddConference" component={withAuth(props => <AddConference />)} />
+                            <Route path="/HomeUser/ListConferences" component={withAuth(props => <ListConferences />)} />
                         </main>
                     </React.Fragment>
                 )}
