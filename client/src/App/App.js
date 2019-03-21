@@ -9,6 +9,7 @@ import { Login } from '../components/Login';
 import { Register } from '../components/Register'
 import { PrivateRoute } from "../components/Routes";
 import { alertActions } from "../_actions";
+import withAuth from "../components/Routes";
 
 class App extends Component {
 
@@ -40,16 +41,8 @@ class App extends Component {
                                           {alert.message}
                                       </div>
                                       }
-                                      <PrivateRoute
-                                          exact
-                                          path="/"
-                                          component={Home}
-                                      />
                                       <Route
                                           path="/login" component={Login}
-                                      />
-                                      <Route
-                                          path="/register" component={Register}
                                       />
                                   </div>
                               </header>
@@ -57,10 +50,13 @@ class App extends Component {
                       </div>
                   <div className="container">
                       <Route
-                          path="/HomeAdmin" component={HomeAdmin}
+                          path="/register" component={Register}
                       />
                       <Route
-                          path="/HomeUser" component={HomeUser}
+                          path="/HomeAdmin" component={withAuth(HomeAdmin)}
+                      />
+                      <Route
+                          path="/HomeUser" component={withAuth(HomeUser)}
                       />
                   </div>
               </div>

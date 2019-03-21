@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 
 import ReactTable from "react-table";
-import {adminServices} from "../../_services";
+import { userService} from "../../_services";
 
 import 'react-table/react-table.css'
 
 
-class Conferences extends Component{
+class ListConferences extends Component{
 
     constructor(props){
         super(props);
@@ -45,7 +45,8 @@ class Conferences extends Component{
 
 
     componentDidMount() {
-        adminServices.getConferences()
+        let user_id = JSON.parse(localStorage.getItem('user'))._id;
+        userService.getConferece(user_id)
             .then(result =>{
                 this.setState(()=>{
                     return {data:result}
@@ -61,7 +62,7 @@ class Conferences extends Component{
 
         return (
             <div>
-                <h2>Conferences : </h2>
+                <h2>Vos conferences : </h2>
                 <ReactTable
                     data={this.state.data}
                     columns={this.state.columns}
@@ -71,4 +72,4 @@ class Conferences extends Component{
     }
 }
 
-export {Conferences}
+export {ListConferences}

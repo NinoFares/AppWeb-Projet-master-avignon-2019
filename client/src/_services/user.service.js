@@ -5,8 +5,7 @@ export const userService = {
     logout,
     register,
     addConference,
-    getProfil
-
+    getConferece,
 };
 
 function login(username,password){
@@ -36,17 +35,19 @@ function login(username,password){
 
 function logout(){
     localStorage.removeItem('user');
+    document.cookie = "token=-1; path=/"
+    axios('logout');
 }
 
 
 function register(user){
-    return axios.post(
-        '/register',
-        JSON.stringify(user))
+    return axios.post('/register',user)
         .then(response =>{
             console.log(response)
         })
-        .catch();
+        .catch(err =>{
+            Promise.reject('Erreur, Registration failed')
+        });
 }
 
 function addConference(payload){
@@ -59,21 +60,15 @@ function addConference(payload){
         })
 }
 
-function getProfil(id) {
-    return axios.post('/profil',
-        JSON.stringify(id))
-        .then(response =>{
-        return response.data;
-    })
-    .catch (err => {
-        return Promise.reject("Erreur, import profil")
-    })
+function getConferece(id){
+    return axios.post('/getUserConference', {user_id: id})
+        .then(result => {
+            return result.data
+        })
+        .catch(err => {
+            return Promise.reject('Erreur, get User Conference');
+        });
 }
-
-
-//function getConferece(id){
-  //  return
-//}
 
 
 function handleResponse(response) {

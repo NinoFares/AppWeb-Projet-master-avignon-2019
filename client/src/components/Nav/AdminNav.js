@@ -9,6 +9,7 @@ import {userActions} from "../../_actions";
 import {Users} from '../Users'
 import {Conferences} from "../Conferences";
 import { history } from "../../_helpers";
+import withAuth from "../Routes";
 
 
 
@@ -79,9 +80,9 @@ class AdminNav extends Component{
                             </SideNav.Nav>
                         </SideNav>
                         <main>
-                            <Route path="/" exact component={props => <HomeUser />} />
-                            <Route path="/HomeAdmin/Users" component={props => <Users />} />
-                            <Route path="/HomeAdmin/Conferences" component={props => <Conferences />} />
+                            <Route path="/" exact component={withAuth(props => <HomeUser />)} />
+                            <Route path="/HomeAdmin/Users" component={withAuth(props => <Users />)} />
+                            <Route path="/HomeAdmin/Conferences" component={withAuth(props => <Conferences />)} />
                         </main>
                     </React.Fragment>
                 )}
