@@ -4,10 +4,14 @@ var bodyParser = require('body-parser');
 var mysql = require('mysql');
 var fs = require('fs').promises;
 var sha1 = require('sha1');
+const jwt = require('jsonwebtoken');
+const cookieParser = require('cookie-parser');
 
 
 //Variable utilisté
 var app = express();
+app.use(cookieParser());
+const secret = 'testtest';
 var pool = mysql.createPool({
   host     : "localhost",
   user     : "root",
@@ -36,6 +40,28 @@ app.listen(port, () => `Server running on port ${port}`);
 //      })
 // })
 
+const withAuth = function(req, res, next) {
+     const token =
+         req.body.token ||
+         req.query.token ||
+         req.headers['x-access-token'] ||
+         req.cookies.token;
+
+     if (!token) {
+          res.status(401).send('Unauthorized: No token provided');
+     } else {
+          jwt.verify(token, secret, function(err, decoded) {
+               if (err) {
+                    res.status(401).send('Unauthorized: Invalid token');
+               } else {
+                    req.email = decoded.email;
+                    next();
+               }
+          });
+     }
+}
+
+
 
 //Routes :
 /***********************      Route qui gére le login  ***********************/
@@ -59,7 +85,11 @@ app.post('/login',(request,response)=>{
                     responseData.statusMsg = 'Connexion réussie : bonjour '+result[0].name;
                     responseData.connexionStatut = true;
 
-                    response.send(JSON.stringify(responseData));
+
+                    let token = jwt.sign({usermail},secret,{
+                         expiresIn:'1h'
+                    });
+                    response.cookie('token',token,{httpOnly:true}).send(responseData);
                }
                else {
                     //Authentification échoué
@@ -70,7 +100,7 @@ app.post('/login',(request,response)=>{
 });
 
 /***********************      Route qui import des utilisateurs  ***********************/
-app.post('/users',(request,response)=>{
+app.post('/users',withAuth,(request,response)=>{
 
 
      pool.getConnection((err,connection)=>{
@@ -86,7 +116,7 @@ app.post('/users',(request,response)=>{
 });
 
 /***********************      Route qui import des conferences  ***********************/
-app.post('/conferences',(request,response)=>{
+app.post('/conferences',withAuth,(request,response)=>{
 
 
      pool.getConnection((err,connection)=>{
@@ -144,6 +174,57 @@ app.post('/addConference',(request,response)=>{
           })
      })
 });
+
+/***********************      Route qui import des conferences  ***********************/
+app.post('/getUserConference',(request,response)=>{
+
+     user_id = request.body.user_id;
+
+     pool.getConnection((err,connection)=>{
+          if(err) throw err;
+          connection.query("select * from conference where id_user = '"+user_id+"';",(err,result)=>{
+               connection.release();
+               if(err) throw err;
+               else{
+                    response.send(JSON.stringify(result));
+               }
+          })
+     })
+});
+
+/***********************      Route qui enregistre un utilisateur  ***********************/
+app.post('/register',(request,response) => {
+
+     let nom = request.body.nom;
+     let username = request.body.username;
+     let email = request.body.email;
+     let password = request.body.password;
+
+     let sql = "insert into users (email,password,name,username,roles) values ('"+email+"',sha1('"+password+"'),'"+nom+"','"+username+"','ROLE_USER')";
+
+     pool.getConnection((err,connection)=>{
+          if(err) throw err;
+          connection.query(sql,(err,result) => {
+               if(err) throw err;
+               else{
+                    response.send();
+               }
+          })
+     })
+
+});
+
+
+/***********************      Token Check  ***********************/
+
+app.post('/checkToken', withAuth, function(req, res) {
+     res.sendStatus(200);
+});
+
+/***********************      LogOut  ***********************/
+app.post('/logout',withAuth,function(req,res){
+     res.cookies.destroy();
+})
 
 // TODO: est ce que mon code pour l'importaion du profil est bon?
 //Mise à jour de profil
