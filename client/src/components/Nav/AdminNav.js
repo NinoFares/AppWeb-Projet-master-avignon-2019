@@ -9,7 +9,7 @@ import {userActions} from "../../_actions";
 import {Users} from '../Users'
 import {Conferences} from "../Conferences";
 import { history } from "../../_helpers";
-import withAuth from "../Routes";
+import withAuth from "../../Auth"
 
 
 

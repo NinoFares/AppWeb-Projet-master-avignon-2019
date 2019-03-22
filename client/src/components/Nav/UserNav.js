@@ -11,7 +11,7 @@ import {userActions} from "../../_actions";
 
 import {AddConference} from "../AddConference";
 import {ListConferences} from "../ListConferences";
-import withAuth from "../Routes";
+import withAuth from "../../Auth"
 
 
 class UserNav extends Component{

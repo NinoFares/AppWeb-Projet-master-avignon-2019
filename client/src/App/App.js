@@ -4,12 +4,12 @@ import {connect} from 'react-redux';
 import {Router, Route} from 'react-router-dom'
 
 import { history } from '../_helpers';
-import { Home,HomeAdmin,HomeUser } from '../components/Home'
+import {Home, HomeAdmin, HomeUser} from '../components/Home'
 import { Login } from '../components/Login';
 import { Register } from '../components/Register'
 import { PrivateRoute } from "../components/Routes";
 import { alertActions } from "../_actions";
-import withAuth from "../components/Routes";
+import withAuth from "../Auth"
 
 class App extends Component {
 
@@ -41,8 +41,11 @@ class App extends Component {
                                           {alert.message}
                                       </div>
                                       }
+                                      <PrivateRoute exact
+                                          path="/" component={HomeUser}
+                                      />
                                       <Route
-                                          path="/login" component={Login}
+                                            path="/login" component={Login}
                                       />
                                   </div>
                               </header>

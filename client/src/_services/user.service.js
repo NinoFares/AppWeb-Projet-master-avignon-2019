@@ -35,7 +35,7 @@ function login(username,password){
 
 function logout(){
     localStorage.removeItem('user');
-    document.cookie = "token=-1; path=/"
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     axios('logout');
 }
 
