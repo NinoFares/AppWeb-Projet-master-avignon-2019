@@ -1,3 +1,5 @@
+// TODO : Gestion des réponses insertion
+
 //Dépendences :
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -60,6 +62,22 @@ const withAuth = function(req, res, next) {
           });
      }
 }
+
+/**
+ * Fonction utilitaire pour rendre en SQL Format
+ **/
+function twoDigits(d) {
+     if(0 <= d && d < 10) return "0" + d.toString();
+     if(-10 < d && d < 0) return "-0" + (-1*d).toString();
+     return d.toString();
+}
+
+/**
+ * Fonction qui rend une date en SQL format
+ **/
+Date.prototype.toMysqlFormat = function() {
+     return this.getUTCFullYear() + "-" + twoDigits(1 + this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
+};
 
 
 
@@ -136,21 +154,6 @@ app.post('/conferences',withAuth,(request,response)=>{
 
 app.post('/addConference',(request,response)=>{
 
-     /**
-      * Fonction utilitaire pour rendre en SQL Format
-      **/
-     function twoDigits(d) {
-          if(0 <= d && d < 10) return "0" + d.toString();
-          if(-10 < d && d < 0) return "-0" + (-1*d).toString();
-          return d.toString();
-     }
-
-     /**
-      * Fonction qui rend une date en SQL format
-      **/
-     Date.prototype.toMysqlFormat = function() {
-          return this.getUTCFullYear() + "-" + twoDigits(1 + this.getUTCMonth()) + "-" + twoDigits(this.getUTCDate()) + " " + twoDigits(this.getUTCHours()) + ":" + twoDigits(this.getUTCMinutes()) + ":" + twoDigits(this.getUTCSeconds());
-     };
 
      let name = request.body.name;
      let id_user = request.body._id;
@@ -175,7 +178,7 @@ app.post('/addConference',(request,response)=>{
      })
 });
 
-/***********************      Route qui import des conferences  ***********************/
+/***********************      Route qui import des conferences d'un user  ***********************/
 app.post('/getUserConference',(request,response)=>{
 
      user_id = request.body.user_id;
@@ -193,6 +196,7 @@ app.post('/getUserConference',(request,response)=>{
 });
 
 /***********************      Route qui enregistre un utilisateur  ***********************/
+
 app.post('/register',(request,response) => {
 
      let nom = request.body.nom;
@@ -215,6 +219,106 @@ app.post('/register',(request,response) => {
 });
 
 
+/****************** Creation Room *****************/
+// PS : Table ne sers a rien revoir avec Benslimane
+app.post('/createRoom',withAuth,(req,res)=>{
+
+     let nom = req.body.nom;
+     let capacity = req.body.capacity;
+     let location = req.body.location;
+
+     let sql = "insert into room (name,capacity,location) values ('"+nom+"','"+capacity+"','"+location+"')"
+
+     pool.getConnection((err,connection)=>{
+          if (err) throw err;
+          connection.query(sql,(err,result) =>{
+               if(err) throw err;
+               else{
+                    res.send();
+               }
+          });
+     })
+})
+
+/**************** Creation session ******************/
+
+app.post('/createSession',withAuth,(req,res)=>{
+
+     let titre = req.body.titre;
+     let location = req.body.location;
+     let date_begin = new Date(req.body.date_begin).toMysqlFormat();
+     let date_end = new Date(req.body.date_end).toMysqlFormat();
+     let id_conf = req.body.id_conf;
+     let id_room = req.body.id_room;
+
+     let sql = "insert into session (title,location,date_begin,date_end,id_conference,id_room) values ('"+titre+"','"+location+"','"+date_begin+"','"+date_end+"','"+id_conf+"','"+id_room+"')"
+
+     pool.getConnection((err,connection)=>{
+          if(err) throw err;
+          else{
+               connection.query((err,result)=>{
+                    if(err) throw err;
+                    else{
+                         res.send();
+                    }
+               })
+          }
+     })
+})
+
+/**************** Creation Workshop ******************/
+
+app.post('/createWorkshop',withAuth,(req,res)=>{
+
+    let titre = req.body.titre;
+    let location = req.body.location;
+    let date_begin = new Date(req.body.date_begin).toMysqlFormat();
+    let date_end = new Date(req.body.date_end).toMysqlFormat();
+    let id_conf = req.body.id_conf;
+    let id_session = req.body.id_session;
+
+    let sql = "insert into workshop (title,location,date_begin,date_end,id_conference,id_session) values ('"+titre+"','"+location+"','"+date_begin+"','"+date_end+"','"+id_conf+"','"+id_session+"')"
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        else{
+            connection.query((err,result)=>{
+                if(err) throw err;
+                else{
+                    res.send();
+                }
+            })
+        }
+    })
+})
+
+
+/**************** Creation Workshop ******************/
+
+app.post('/createArticle',withAuth,(req,res)=>{
+
+    let titre = req.body.titre;
+    let descrip  = req.body.descrip;
+    let auteur = req.body.auteur;
+    let id_session = req.body.id_session;
+
+    let sql = "insert into article (title,description,id_session,auteur) values ('"+titre+"','"+descrip+"','"+id_session+"','"+auteur+"')"
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        else{
+            connection.query((err,result)=>{
+                if(err) throw err;
+                else{
+                    res.send();
+                }
+            })
+        }
+    })
+})
+
+
+
 /***********************      Token Check  ***********************/
 
 app.post('/checkToken', withAuth, function(req, res) {
@@ -225,6 +329,7 @@ app.post('/checkToken', withAuth, function(req, res) {
 app.post('/logout',withAuth,function(req,res){
      res.cookies.destroy();
 })
+
 
 // TODO: est ce que mon code pour l'importaion du profil est bon?
 //Mise à jour de profil

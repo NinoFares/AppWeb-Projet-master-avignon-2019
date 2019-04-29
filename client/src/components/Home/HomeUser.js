@@ -18,7 +18,7 @@ class HomeUser extends Component{
     }
 
     componentDidMount() {
-        userService.getProfil()
+       /* userService.getProfil()
             .then(result =>{
                 this.setState(()=>{
                     return {data:result}
@@ -26,7 +26,7 @@ class HomeUser extends Component{
             })
             .catch(err =>{
                 console.log(err);
-            })
+            })*/
     }
     render() {
         return(

@@ -1,5 +1,7 @@
 import React,{Composant} from 'react'
 
+import {adminServices} from "../../_services";
+
 
 class UserProfile extends Composant{
 
@@ -12,7 +14,7 @@ class UserProfile extends Composant{
     }
 
     componentDidMount() {
-        adminServices.getProfil()
+       /* adminServices.getProfil()
             .then(result =>{
             this.setState(()=>{
                 return {data:result}
@@ -20,7 +22,7 @@ class UserProfile extends Composant{
     })
     .catch(err =>{
             console.log(err);
-    })
+    })*/
     }
 
     render() {

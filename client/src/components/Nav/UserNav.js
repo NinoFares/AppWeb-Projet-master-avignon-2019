@@ -11,6 +11,9 @@ import {userActions} from "../../_actions";
 
 import {AddConference} from "../AddConference";
 import {ListConferences} from "../ListConferences";
+import {AddSession} from "../AddSession"
+import {AddWorkshop} from "../AddWorkshop"
+import {AddArticle} from "../AddArticle"
 import withAuth from "../../Auth"
 
 
@@ -59,6 +62,30 @@ class UserNav extends Component{
                                         Nouvelle Conference
                                     </NavText>
                                 </NavItem>
+                                <NavItem eventKey="AddSession">
+                                    <NavIcon>
+                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Nouvelle Session
+                                    </NavText>
+                                </NavItem>
+                                <NavItem eventKey="AddWorkshop">
+                                    <NavIcon>
+                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Nouveau Workshop
+                                    </NavText>
+                                </NavItem>
+                                <NavItem eventKey="AddArticle">
+                                    <NavIcon>
+                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Nouveau Article
+                                    </NavText>
+                                </NavItem>
                                 <NavItem eventKey="ListConferences">
                                     <NavIcon>
                                         <i className=" fas fa-list-ul" style={{ fontSize: '1.75em' }} />
@@ -81,6 +108,9 @@ class UserNav extends Component{
                             <Route path="/" exact component={withAuth(props => <HomeUser />)} />
                             <Route path="/HomeUser/AddConference" component={withAuth(props => <AddConference />)} />
                             <Route path="/HomeUser/ListConferences" component={withAuth(props => <ListConferences />)} />
+                            <Route path="/HomeUser/AddSession" component={withAuth(props => <AddSession />)} />
+                            <Route path="/HomeUser/AddWorkshop" component={withAuth(props => <AddWorkshop />)} />
+                            <Route path="/HomeUser/AddArticle" component={withAuth(props => <AddArticle />)} />
                         </main>
                     </React.Fragment>
                 )}
