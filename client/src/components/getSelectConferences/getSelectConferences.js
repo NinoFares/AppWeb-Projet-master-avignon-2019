@@ -2,13 +2,6 @@ import React,{Component} from 'react';
 
 import Select from 'react-select'
 import {userService} from "../../_services";
-import {forEach} from "react-bootstrap/es/utils/ElementChildren";
-
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-];
 
 export class GetSelectConferences extends Component{
 
@@ -23,13 +16,21 @@ export class GetSelectConferences extends Component{
 
     handleChange = (selectedOption) =>{
         this.setState({selectedOption});
+        this.props.changeSelectConf(selectedOption.value);
     }
 
     componentDidMount() {
         userService.getConferece(JSON.parse(localStorage.getItem('user'))._id)
             .then(result=>{
-                console.log(result)
-
+                let tmp = [result.length]
+                for(let i=0;i<result.length;i++){
+                    tmp[i] = new Object();
+                    tmp[i].value = result[i].id;
+                    tmp[i].label = result[i].name
+                }
+                return this.setState({
+                    options: tmp,
+                })
             })
             .catch(err =>{
                 console.log(err)
@@ -37,14 +38,15 @@ export class GetSelectConferences extends Component{
 
     }
 
+
     render() {
-        const {selectedOption} = this.state;
         return(
             <Select
-                value={selectedOption}
+                value={this.state.selectedOption}
                 onChange={this.handleChange}
-                options={options}
+                options={this.state.options}
             />
         )
     }
 }
+

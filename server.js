@@ -244,56 +244,53 @@ app.post('/createRoom',withAuth,(req,res)=>{
 
 app.post('/createSession',withAuth,(req,res)=>{
 
-     let titre = req.body.titre;
+     let titre = req.body.name;
      let location = req.body.location;
      let date_begin = new Date(req.body.date_begin).toMysqlFormat();
      let date_end = new Date(req.body.date_end).toMysqlFormat();
-     let id_conf = req.body.id_conf;
-     let id_room = req.body.id_room;
+     let id_conf = req.body.selectedConf;
+     let id_room = null;
 
-     let sql = "insert into session (title,location,date_begin,date_end,id_conference,id_room) values ('"+titre+"','"+location+"','"+date_begin+"','"+date_end+"','"+id_conf+"','"+id_room+"')"
+     let sql = "insert into session (title,location,date_begin,date_end,id_conference) values ('"+titre+"','"+location+"','"+date_begin+"','"+date_end+"','"+id_conf+"')"
 
-     pool.getConnection((err,connection)=>{
-          if(err) throw err;
-          else{
-               connection.query((err,result)=>{
-                    if(err) throw err;
-                    else{
-                         res.send();
-                    }
-               })
-          }
-     })
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
 })
 
 /**************** Creation Workshop ******************/
 
 app.post('/createWorkshop',withAuth,(req,res)=>{
 
-    let titre = req.body.titre;
+    let titre = req.body.name;
     let location = req.body.location;
-    let date_begin = new Date(req.body.date_begin).toMysqlFormat();
-    let date_end = new Date(req.body.date_end).toMysqlFormat();
-    let id_conf = req.body.id_conf;
-    let id_session = req.body.id_session;
+    let subject = req.body.subject;
+    let id_conf = req.body.selectedConf;
+    let id_session = null;
 
-    let sql = "insert into workshop (title,location,date_begin,date_end,id_conference,id_session) values ('"+titre+"','"+location+"','"+date_begin+"','"+date_end+"','"+id_conf+"','"+id_session+"')"
+    let sql = "insert into workshop (name,location,subject,id_conference) values ('"+titre+"','"+location+"','"+subject+"','"+id_conf+"')"
 
     pool.getConnection((err,connection)=>{
         if(err) throw err;
-        else{
-            connection.query((err,result)=>{
-                if(err) throw err;
-                else{
-                    res.send();
-                }
-            })
-        }
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
     })
 })
 
 
-/**************** Creation Workshop ******************/
+/**************** Creation Article ******************/
 
 app.post('/createArticle',withAuth,(req,res)=>{
 
@@ -306,14 +303,13 @@ app.post('/createArticle',withAuth,(req,res)=>{
 
     pool.getConnection((err,connection)=>{
         if(err) throw err;
-        else{
-            connection.query((err,result)=>{
-                if(err) throw err;
-                else{
-                    res.send();
-                }
-            })
-        }
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send();
+            }
+        })
     })
 })
 

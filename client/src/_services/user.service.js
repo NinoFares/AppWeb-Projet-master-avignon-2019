@@ -6,6 +6,9 @@ export const userService = {
     register,
     addConference,
     getConferece,
+    addSession,
+    addWorkshop,
+    addArticle
 };
 
 function login(username,password){
@@ -52,6 +55,36 @@ function register(user){
 
 function addConference(payload){
     return axios.post('/addConference',payload)
+        .then(response =>{
+            return response.data;
+        })
+        .catch(err => {
+            return Promise.reject(err)
+        })
+}
+
+function addSession(payload){
+    return axios.post('/createSession',payload)
+        .then(response =>{
+            return response.data;
+        })
+        .catch(err => {
+            return Promise.reject(err)
+        })
+}
+
+function addWorkshop(payload){
+    return axios.post('/createWorkshop',payload)
+        .then(response =>{
+            return response.data;
+        })
+        .catch(err => {
+            return Promise.reject(err)
+        })
+}
+
+function addArticle(payload){
+    return axios.post('/createArticle',payload)
         .then(response =>{
             return response.data;
         })
