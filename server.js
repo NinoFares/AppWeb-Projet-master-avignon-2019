@@ -195,6 +195,23 @@ app.post('/getUserConference',(request,response)=>{
      })
 });
 
+/***********************      Route qui import des Sessions d'un user  ***********************/
+app.post('/getUserSession',(request,response)=>{
+
+    conf_id = request.body.conf_id;
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from session where id_conference = '"+conf_id+"';",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
 /***********************      Route qui enregistre un utilisateur  ***********************/
 
 app.post('/register',(request,response) => {
@@ -294,12 +311,12 @@ app.post('/createWorkshop',withAuth,(req,res)=>{
 
 app.post('/createArticle',withAuth,(req,res)=>{
 
-    let titre = req.body.titre;
-    let descrip  = req.body.descrip;
+    let titre = req.body.name;
+    let descrip  = req.body.subject;
     let auteur = req.body.auteur;
-    let id_session = req.body.id_session;
+    let id_session = req.body.selectedSession;
 
-    let sql = "insert into article (title,description,id_session,auteur) values ('"+titre+"','"+descrip+"','"+id_session+"','"+auteur+"')"
+    let sql = "insert into article (id,title,description,id_session,auteur) values (1,'"+titre+"','"+descrip+"','"+id_session+"','"+auteur+"')"
 
     pool.getConnection((err,connection)=>{
         if(err) throw err;
@@ -307,7 +324,7 @@ app.post('/createArticle',withAuth,(req,res)=>{
             connection.release();
             if(err) throw err;
             else{
-                response.send();
+                res.send();
             }
         })
     })

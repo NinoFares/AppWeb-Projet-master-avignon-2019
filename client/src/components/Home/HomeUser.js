@@ -13,11 +13,14 @@ class HomeUser extends Component{
         super(props);
 
         this.state = {
-
+            name: ''
         }
     }
 
     componentDidMount() {
+        this.setState({
+            name: JSON.parse(localStorage.getItem('user')).name
+        })
        /* userService.getProfil()
             .then(result =>{
                 this.setState(()=>{
@@ -31,7 +34,7 @@ class HomeUser extends Component{
     render() {
         return(
             <div>
-                <h1>Profil de l'organisateur</h1>
+                <h1>Bienvenu {this.state.name} !</h1>
 
                 <UserNav/>
 

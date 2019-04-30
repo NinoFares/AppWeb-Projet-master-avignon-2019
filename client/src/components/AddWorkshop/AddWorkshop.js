@@ -53,51 +53,55 @@ export class AddWorkshop extends Component{
 
     render() {
         return (
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="SelectConferences">
-                    <Form.Label>Choisir la conférence :</Form.Label>
-                    <GetSelectConferences changeSelectConf={this.onChangeSelectConf.bind(this)}/>
-                </Form.Group>
+            <div>
+                <br/>
+                <h2>Ajouter un Workshop :</h2>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group controlId="SelectConferences">
+                        <Form.Label>Choisir la conférence :</Form.Label>
+                        <GetSelectConferences changeSelectConf={this.onChangeSelectConf.bind(this)}/>
+                    </Form.Group>
 
-                <FormGroup controlId="name" bsSize="large">
-                    <FormLabel>Nom :</FormLabel>
-                    <FormControl
-                        type="text"
-                        autoFocus
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
+                    <FormGroup controlId="name" bsSize="large">
+                        <FormLabel>Nom :</FormLabel>
+                        <FormControl
+                            type="text"
+                            autoFocus
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
 
-                <FormGroup controlId="subject" bsSize="large">
-                    <FormLabel>Sujet du workshop :</FormLabel>
-                    <FormControl
-                        type="text"
-                        autoFocus
-                        value={this.state.subject}
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
+                    <FormGroup controlId="subject" bsSize="large">
+                        <FormLabel>Sujet du workshop :</FormLabel>
+                        <FormControl
+                            type="text"
+                            autoFocus
+                            value={this.state.subject}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
 
-                <FormGroup controlId="location" bsSize="large">
-                    <FormLabel>Location :</FormLabel>
-                    <FormControl
-                        type="text"
-                        autoFocus
-                        value={this.state.location}
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
+                    <FormGroup controlId="location" bsSize="large">
+                        <FormLabel>Location :</FormLabel>
+                        <FormControl
+                            type="text"
+                            autoFocus
+                            value={this.state.location}
+                            onChange={this.handleChange}
+                        />
+                    </FormGroup>
 
 
-                <Button
-                    type="submit"
-                    size="lg"
-                    disabled={!this.validateForm()}
-                >
-                    Créer Workshop
-                </Button>
-            </Form>
+                    <Button
+                        type="submit"
+                        size="lg"
+                        disabled={!this.validateForm()}
+                    >
+                        Créer Workshop
+                    </Button>
+                </Form>
+            </div>
         );
     }
 }

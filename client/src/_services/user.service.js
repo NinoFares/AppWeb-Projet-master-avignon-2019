@@ -8,7 +8,8 @@ export const userService = {
     getConferece,
     addSession,
     addWorkshop,
-    addArticle
+    addArticle,
+    getSession
 };
 
 function login(username,password){
@@ -95,6 +96,16 @@ function addArticle(payload){
 
 function getConferece(id){
     return axios.post('/getUserConference', {user_id: id})
+        .then(result => {
+            return result.data
+        })
+        .catch(err => {
+            return Promise.reject('Erreur, get User Conference');
+        });
+}
+
+function getSession(id){
+    return axios.post('/getUserSession', {conf_id: id})
         .then(result => {
             return result.data
         })

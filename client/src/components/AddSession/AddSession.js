@@ -65,53 +65,57 @@ export class AddSession extends Component{
     }
 
         render() {
-        return (
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="SelectConferences">
-                    <Form.Label>Choisir la conférence :</Form.Label>
-                    <GetSelectConferences changeSelectConf={this.onChangeSelectConf.bind(this)}/>
-                </Form.Group>
+            return (
+                <div>
+                    <br/>
+                    <h2>Ajouter une session :</h2>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group controlId="SelectConferences">
+                            <Form.Label>Choisir la conférence :</Form.Label>
+                            <GetSelectConferences changeSelectConf={this.onChangeSelectConf.bind(this)}/>
+                        </Form.Group>
 
-                <FormGroup controlId="name" bsSize="large">
-                    <FormLabel>Nom :</FormLabel>
-                    <FormControl
-                        type="text"
-                        autoFocus
-                        value={this.state.name}
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
+                        <FormGroup controlId="name" bsSize="large">
+                            <FormLabel>Nom :</FormLabel>
+                            <FormControl
+                                type="text"
+                                autoFocus
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
 
-                <FormGroup controlId="location" bsSize="large">
-                    <FormLabel>Location :</FormLabel>
-                    <FormControl
-                        type="text"
-                        autoFocus
-                        value={this.state.location}
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
-
-
-                <FormGroup controlId="date_begin" bsSize="large">
-                    <FormLabel>Date begin :</FormLabel>
-                    <DataPicker selected={this.state.date_begin} onChange={this.handleChangeBegin}/>
-                </FormGroup>
-
-                <FormGroup controlId="date_end" bsSize="large">
-                    <FormLabel>Date End :</FormLabel>
-                    <DataPicker selected={this.state.date_end} onChange={this.handleChangeEnd}/>
-                </FormGroup>
+                        <FormGroup controlId="location" bsSize="large">
+                            <FormLabel>Location :</FormLabel>
+                            <FormControl
+                                type="text"
+                                autoFocus
+                                value={this.state.location}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
 
 
-                <Button
-                    type="submit"
-                    size="lg"
-                    disabled={!this.validateForm()}
-                >
-                    Créer Session
-                </Button>
-            </Form>
-        );
+                        <FormGroup controlId="date_begin" bsSize="large">
+                            <FormLabel>Date begin :</FormLabel>
+                            <DataPicker selected={this.state.date_begin} onChange={this.handleChangeBegin}/>
+                        </FormGroup>
+
+                        <FormGroup controlId="date_end" bsSize="large">
+                            <FormLabel>Date End :</FormLabel>
+                            <DataPicker selected={this.state.date_end} onChange={this.handleChangeEnd}/>
+                        </FormGroup>
+
+
+                        <Button
+                            type="submit"
+                            size="lg"
+                            disabled={!this.validateForm()}
+                        >
+                            Créer Session
+                        </Button>
+                    </Form>
+                </div>
+            );
     }
 }
