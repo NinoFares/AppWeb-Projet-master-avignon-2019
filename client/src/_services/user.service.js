@@ -9,7 +9,9 @@ export const userService = {
     addSession,
     addWorkshop,
     addArticle,
-    getSession
+    getSession,
+    getProfil,
+    getListUsersConf
 };
 
 function login(username,password){
@@ -130,4 +132,24 @@ function handleResponse(response) {
             const error = response.data;
             return Promise.reject(error);
         }
+}
+
+function getProfil(id){
+    return axios.post('/getProfil', {user_id: id})
+        .then(result => {
+            return result.data
+        })
+        .catch(err => {
+            return Promise.reject('Erreur, get User Profil');
+        });
+}
+
+function getListUsersConf(id_conference){
+    return axios.post('/getListUsersConf', {conf_id: id_conference})
+        .then(result => {
+            return result.data
+        })
+        .catch(err => {
+            return Promise.reject('Erreur, get List Users Conference');
+        });
 }

@@ -2,21 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcd01510-7898-4439-97eb-dda067261e94" name="Default Changelist" comment="Ajout de page addSession et addWorkshop">
-      <change afterPath="$PROJECT_DIR$/.idea/Application_mobile_React.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Inscription/Inscription.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/Inscription/Inscription.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/getSelectSessions/getSelectSessions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/getSelectSessions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/ListUsersConference/ListUsersConference.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/ListUsersConference/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/_services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_services/user.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AddArticle/AddArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddArticle/AddArticle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AddSession/AddSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddSession/AddSession.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AddWorkshop/AddWorkshop.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddWorkshop/AddWorkshop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home/HomeUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/HomeUser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Nav/UserNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Nav/UserNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,40 +34,34 @@
     <expand />
     <select />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="318" column="86" selection-start-line="318" selection-start-column="86" selection-end-line="318" selection-end-column="86" />
+            <state relative-caret-position="391">
+              <caret line="384" column="3" selection-start-line="384" selection-start-column="3" selection-end-line="384" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Bureau/Projet_Conference_2017_2018/Base_donnees/confypcs_conference.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1238">
-              <caret line="350" column="13" selection-start-line="350" selection-start-column="3" selection-end-line="350" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/_services/user.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-645">
-              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+            <state relative-caret-position="234">
+              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/AddConference/AddConference.js">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Home/HomeUser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="72" selection-end-column="49" />
+            <state relative-caret-position="432">
+              <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="18" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -81,49 +70,47 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/AddArticle/AddArticle.js">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Nav/UserNav.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/getSelectSessions/getSelectSessions.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="18" column="61" lean-forward="true" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/AddSession/AddSession.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="60" selection-start-line="60" selection-end-line="64" selection-end-column="5" />
+            <state relative-caret-position="391">
+              <caret line="134" column="17" selection-start-line="134" selection-start-column="17" selection-end-line="134" selection-end-column="17" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
+                <element signature="e#213#271#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/getSelectConferences/getSelectConferences.js">
+        <entry file="file://$PROJECT_DIR$/client/src/components/ListUsersConference/ListUsersConference.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+            <state relative-caret-position="391">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -144,6 +131,7 @@
       <find>LoggingIn</find>
       <find>label</find>
       <find>store</find>
+      <find>getPr</find>
     </findStrings>
     <replaceStrings>
       <replace>ADMIN</replace>
@@ -160,9 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/components/Nav/index.js" />
-        <option value="$PROJECT_DIR$/client/public/index.html" />
-        <option value="$PROJECT_DIR$/client/src/components/Home/Home.js" />
         <option value="$PROJECT_DIR$/client/src/components/Users/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/Conferences/index.js" />
         <option value="$PROJECT_DIR$/client/src/_actions/user.actions.js" />
@@ -185,7 +170,6 @@
         <option value="$PROJECT_DIR$/client/src/components/UserProfile/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/ListConferences/ListConferences.js" />
         <option value="$PROJECT_DIR$/client/src/_services/admin.services.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js" />
         <option value="$PROJECT_DIR$/client/src/components/Register/Register.js" />
         <option value="$PROJECT_DIR$/client/src/components/Routes.js" />
         <option value="$PROJECT_DIR$/client/src/components/Routes/index.js" />
@@ -194,23 +178,27 @@
         <option value="$PROJECT_DIR$/client/src/components/Nav/AdminNav.js" />
         <option value="$PROJECT_DIR$/client/src/Auth.jsx" />
         <option value="$PROJECT_DIR$/client/src/components/Routes/Routes.js" />
-        <option value="$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js" />
         <option value="$PROJECT_DIR$/client/src/App/App.js" />
         <option value="$PROJECT_DIR$/client/src/components/AddSession/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/AddArticle/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/AddWorkshop/index.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Nav/UserNav.js" />
         <option value="$PROJECT_DIR$/client/src/components/getSelectConferences/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/getSelectConferences/getSelectConferences.js" />
         <option value="$PROJECT_DIR$/client/src/components/AddConference/AddConference.js" />
         <option value="$PROJECT_DIR$/client/src/components/AddWorkshop/AddWorkshop.js" />
         <option value="$PROJECT_DIR$/client/src/components/AddSession/AddSession.js" />
-        <option value="$PROJECT_DIR$/client/src/components/Home/HomeUser.js" />
         <option value="$PROJECT_DIR$/client/src/components/getSelectSessions/index.js" />
-        <option value="$PROJECT_DIR$/client/src/_services/user.service.js" />
         <option value="$PROJECT_DIR$/client/src/components/getSelectSessions/getSelectSessions.js" />
         <option value="$PROJECT_DIR$/client/src/components/AddArticle/AddArticle.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Home/HomeUser.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js" />
+        <option value="$PROJECT_DIR$/client/src/components/ListUsersConference/index.js" />
+        <option value="$PROJECT_DIR$/client/src/components/ListUsersConference/ListUsersConference.js" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/client/src/components/Nav/UserNav.js" />
+        <option value="$PROJECT_DIR$/client/src/_services/user.service.js" />
       </list>
     </option>
   </component>
@@ -228,57 +216,42 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
+              <item name="Projet_Master_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_Master_v2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
+              <item name="Projet_Master_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_Master_v2" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
+              <item name="Projet_Master_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_Master_v2" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
+              <item name="Projet_Master_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_Master_v2" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="_services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
+              <item name="Projet_Master_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_Master_v2" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="ListConferences" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
+              <item name="Projet_Master_v2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet_Master_v2" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
@@ -288,14 +261,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556630328201" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Bureau/Projet_Conference_2017_2018/Base_donnees/confypcs_conference.sql" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
@@ -321,6 +297,23 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="client-install" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="client-install" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.client-install" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -348,6 +341,9 @@
       <workItem from="1556264018738" duration="13006000" />
       <workItem from="1556561631299" duration="2297000" />
       <workItem from="1556611148700" duration="13620000" />
+      <workItem from="1556664538045" duration="2616000" />
+      <workItem from="1556745993279" duration="2776000" />
+      <workItem from="1556832915664" duration="1300000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout de redux a l'application et gestion des route">
       <created>1551428973490</created>
@@ -416,7 +412,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162500000" />
+    <option name="totallyTimeSpent" value="169192000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -428,9 +424,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2145144" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49372384" visible="true" weight="0.21785174" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -438,9 +435,10 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Learn" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="npm" order="8" sideWeight="0.50627613" side_tool="true" weight="0.21785174" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -448,7 +446,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4994664" visible="true" weight="0.21922246" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4994664" visible="true" weight="0.21767594" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50053364" side_tool="true" weight="0.16522679" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -476,27 +474,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Ajout de page addSession et addWorkshop" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/_constants/alert.constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/_constants/user.constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/_constants/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/_services/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -627,16 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -657,7 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Routes/WithAuth" />
     <entry file="file://$PROJECT_DIR$/client/src/components/Routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -665,7 +631,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Routes/withAuth" />
+    <entry file="file://$PROJECT_DIR$/client/src/components/Routes/WithAuth" />
     <entry file="file://$PROJECT_DIR$/client/src/components/Login/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -697,16 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="24" column="8" selection-start-line="16" selection-start-column="7" selection-end-line="24" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -785,26 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Nav/UserNav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/Home/HomeUser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="21" column="63" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/AddWorkshop/AddWorkshop.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -819,39 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/getSelectConferences/getSelectConferences.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/getSelectSessions/getSelectSessions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="18" column="61" lean-forward="true" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/AddSession/AddSession.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="60" selection-start-line="60" selection-end-line="64" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Bureau/Projet_Conference_2017_2018/Base_donnees/confypcs_conference.sql" />
     <entry file="file://$PROJECT_DIR$/client/src/components/AddConference/AddConference.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
+        <state relative-caret-position="1170">
           <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="72" selection-end-column="49" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
@@ -861,32 +768,120 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/AddArticle/AddArticle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="360">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/getSelectSessions/getSelectSessions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Bureau/Projet_Conference_2017_2018/Base_donnees/confypcs_conference.sql">
+    <entry file="file://$PROJECT_DIR$/client/src/components/getSelectConferences/getSelectConferences.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1238">
-          <caret line="350" column="13" selection-start-line="350" selection-start-column="3" selection-end-line="350" selection-end-column="13" />
+        <state relative-caret-position="270">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/_services/user.service.js">
+    <entry file="file://$PROJECT_DIR$/client/src/components/AddSession/AddSession.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-645">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="1052">
+          <caret line="60" selection-start-line="60" selection-end-line="64" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/ListUsersConference/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="318" column="86" selection-start-line="318" selection-start-column="86" selection-end-line="318" selection-end-column="86" />
+        <state relative-caret-position="391">
+          <caret line="384" column="3" selection-start-line="384" selection-start-column="3" selection-end-line="384" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/ListUsersConference/ListUsersConference.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Home/Home.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Home/HomeUser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" selection-start-line="24" selection-end-line="24" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/Nav/UserNav.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="134" column="17" selection-start-line="134" selection-start-column="17" selection-end-line="134" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#213#271#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/_services/user.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
         </state>
       </provider>
     </entry>

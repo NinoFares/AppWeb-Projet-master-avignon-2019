@@ -1,27 +1,25 @@
 import React,{Component} from 'react';
 
-import {AdminNav} from "../Nav";
-import {adminServices, userService} from "../../_services";
-
+import {UserProfile} from '../UserProfile'
+import {UserNav} from "../Nav";
 
 class HomeAdmin extends Component{
-
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state = {
+        this.state={}
 
-        }
     }
 
     render() {
         return(
             <div>
-                <h1>Admin Page</h1>
-                <AdminNav/>
+                <UserProfile/>
+                <UserNav/>
             </div>
         )
     }
+
 }
 
 export {HomeAdmin};

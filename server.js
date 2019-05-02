@@ -347,3 +347,39 @@ app.post('/logout',withAuth,function(req,res){
 // TODO: est ce que mon code pour l'importaion du profil est bon?
 //Mise à jour de profil
 // Affichage des informations enregistrées dans la base
+
+/***********************      Affichage Profil utilisateurs  ***********************/
+app.post('/getProfil',(request,response)=>{
+
+    let user_id = request.body.user_id;
+
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from users where id = '"+user_id+"';",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+/***********************      Affichage des Utilisateurs d'une conference  ***********************/
+app.post('/getListUsersConf',(request,response)=>{
+
+    let conf_id = request.body.conf_id;
+
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from user where id_conference = '"+conf_id+"';",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});

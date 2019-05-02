@@ -14,6 +14,7 @@ import {ListConferences} from "../ListConferences";
 import {AddSession} from "../AddSession"
 import {AddWorkshop} from "../AddWorkshop"
 import {AddArticle} from "../AddArticle"
+import {ListUsersConference} from '../ListUsersConference'
 import withAuth from "../../Auth"
 
 
@@ -94,6 +95,14 @@ class UserNav extends Component{
                                         Liste des Conferences
                                     </NavText>
                                 </NavItem>
+                                <NavItem eventKey="ListUsersConf">
+                                    <NavIcon>
+                                        <i className="fas fa-users" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Liste des Users
+                                    </NavText>
+                                </NavItem>
                                 <NavItem eventKey="Logout" onClick={this.logout}>
                                     <NavIcon>
                                         <i className="fas fa-power-off" style={{ fontSize: '1.75em' }} />
@@ -111,6 +120,7 @@ class UserNav extends Component{
                             <Route path="/HomeUser/AddSession" component={withAuth(props => <AddSession />)} />
                             <Route path="/HomeUser/AddWorkshop" component={withAuth(props => <AddWorkshop />)} />
                             <Route path="/HomeUser/AddArticle" component={withAuth(props => <AddArticle />)} />
+                            <Route path="/HomeUser/ListUsersConf" component={withAuth(props => <ListUsersConference />)} />
                         </main>
                     </React.Fragment>
                 )}
