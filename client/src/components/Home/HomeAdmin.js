@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 import {UserProfile} from '../UserProfile'
-import {UserNav} from "../Nav";
+import {AdminNav} from "../Nav";
 
 class HomeAdmin extends Component{
     constructor(props) {
@@ -15,7 +15,7 @@ class HomeAdmin extends Component{
         return(
             <div>
                 <UserProfile/>
-                <UserNav/>
+                <AdminNav/>
             </div>
         )
     }
