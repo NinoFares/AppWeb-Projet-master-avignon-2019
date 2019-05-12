@@ -42,7 +42,7 @@ export class ListUsersConference extends Component{
                 },
                 {
                     Header: 'Session',
-                    accessor: 'idSession'
+                    accessor: 'title'
                 },
             ]
         }
