@@ -15,10 +15,10 @@ var app = express();
 app.use(cookieParser());
 const secret = 'testtest';
 var pool = mysql.createPool({
-  host     : "localhost",
-  user     : "root",
-  password : "",
-  database : "confypcs_conference"
+  host     : "pedago01c.univ-avignon.fr",
+  user     : "Conferences_MobApps",
+  password : "KuWYMFmO",
+  database : "Conferences_MobApps_189314"
 });
 const port = 5000;
 var responseData = {};
@@ -374,7 +374,7 @@ app.post('/getListUsersConf',(request,response)=>{
 
     pool.getConnection((err,connection)=>{
         if(err) throw err;
-        connection.query("select * from user where id_conference = '"+conf_id+"';",(err,result)=>{
+        connection.query("SELECT * FROM user u, session s, conference c WHERE c.id=s.id_conference and s.id=u.idSession and c.id='"+conf_id+"';",(err,result)=>{
             connection.release();
             if(err) throw err;
             else{

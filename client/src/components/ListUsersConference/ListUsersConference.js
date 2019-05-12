@@ -21,15 +21,15 @@ export class ListUsersConference extends Component{
                     accessor: 'name',
                 },
                 {
-                    Header: 'UserName',
-                    accessor: 'username'
+                    Header: 'Prénom',
+                    accessor: 'surname'
                 },
                 {
                     Header: 'Email',
                     accessor: 'email'
                 },
                 {
-                    Header: 'Phone',
+                    Header: 'Téléphone',
                     accessor: 'phone'
                 },
                 {
@@ -39,6 +39,10 @@ export class ListUsersConference extends Component{
                 {
                     Header: 'Pays',
                     accessor: 'pays'
+                },
+                {
+                    Header: 'Session',
+                    accessor: 'idSession'
                 },
             ]
         }
