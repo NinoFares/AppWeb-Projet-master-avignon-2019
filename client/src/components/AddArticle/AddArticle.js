@@ -6,6 +6,9 @@ import {userService} from "../../_services";
 import {Button, FormGroup, FormControl, FormLabel,Form} from "react-bootstrap";
 import {GetSelectSessions} from "../getSelectSessions";
 
+import Swal from 'sweetalert2';
+import {history} from "../../_helpers";
+
 
 export class AddArticle extends Component{
 
@@ -39,7 +42,12 @@ export class AddArticle extends Component{
         payload._id = JSON.parse(localStorage.getItem('user'))._id
         userService.addArticle(payload)
             .then(result => {
-                console.log("Requete réussis")
+                Swal.fire(
+                    'Article crée',
+                    'Votre Article a bien été créer',
+                    'success'
+                )
+                history.push('/HomeUser/ListArticles')
             })
             .catch(err => {
                 console.log("Requete refusé !")

@@ -16,6 +16,9 @@ import {AddWorkshop} from "../AddWorkshop"
 import {AddArticle} from "../AddArticle"
 import {ListUsersConference} from '../ListUsersConference'
 import withAuth from "../../Auth"
+import {ListSessions} from "../ListSessions";
+import {ListWorkshops} from "../ListWorkshops";
+import {ListArticles} from "../ListArticles";
 
 
 class UserNav extends Component{
@@ -32,6 +35,7 @@ class UserNav extends Component{
         userActions.logout();
     }
 
+
     render() {
         return(
             <BrowserRouter>
@@ -42,6 +46,7 @@ class UserNav extends Component{
                                 const to = '/HomeUser/' + selected;
                                 if (location.pathname !== to) {
                                     history.push(to);
+                                    this.props.onChangeComponentSelected(selected);
                                 }
                             }}
                         >
@@ -55,44 +60,36 @@ class UserNav extends Component{
                                         Home
                                     </NavText>
                                 </NavItem>
-                                <NavItem eventKey="AddConference">
-                                    <NavIcon>
-                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
-                                    </NavIcon>
-                                    <NavText>
-                                        Nouvelle Conference
-                                    </NavText>
-                                </NavItem>
-                                <NavItem eventKey="AddSession">
-                                    <NavIcon>
-                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
-                                    </NavIcon>
-                                    <NavText>
-                                        Nouvelle Session
-                                    </NavText>
-                                </NavItem>
-                                <NavItem eventKey="AddWorkshop">
-                                    <NavIcon>
-                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
-                                    </NavIcon>
-                                    <NavText>
-                                        Nouveau Workshop
-                                    </NavText>
-                                </NavItem>
-                                <NavItem eventKey="AddArticle">
-                                    <NavIcon>
-                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
-                                    </NavIcon>
-                                    <NavText>
-                                        Nouveau Article
-                                    </NavText>
-                                </NavItem>
                                 <NavItem eventKey="ListConferences">
                                     <NavIcon>
-                                        <i className=" fas fa-list-ul" style={{ fontSize: '1.75em' }} />
+                                        <i className=" fa fa-address-card" style={{ fontSize: '1.75em' }} />
                                     </NavIcon>
                                     <NavText>
-                                        Liste des Conferences
+                                        Conferences
+                                    </NavText>
+                                </NavItem>
+                                <NavItem eventKey="ListSessions">
+                                    <NavIcon>
+                                        <i className="fas fa-plus" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Sessions
+                                    </NavText>
+                                </NavItem>
+                                <NavItem eventKey="ListWorkshops">
+                                    <NavIcon>
+                                        <i className="fas fa-hammer" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Workshops
+                                    </NavText>
+                                </NavItem>
+                                <NavItem eventKey="ListArticles">
+                                    <NavIcon>
+                                        <i className="fas fa-newspaper" style={{ fontSize: '1.75em' }} />
+                                    </NavIcon>
+                                    <NavText>
+                                        Articles
                                     </NavText>
                                 </NavItem>
                                 <NavItem eventKey="ListUsersConf">
@@ -108,15 +105,19 @@ class UserNav extends Component{
                                         <i className="fas fa-power-off" style={{ fontSize: '1.75em' }} />
                                     </NavIcon>
                                     <NavText>
-                                        Log Out
+                                        Déconnexion
                                     </NavText>
                                 </NavItem>
                             </SideNav.Nav>
                         </SideNav>
+
                         <main>
                             <Route path="/" exact component={withAuth(props => <HomeUser />)} />
                             <Route path="/HomeUser/AddConference" component={withAuth(props => <AddConference />)} />
                             <Route path="/HomeUser/ListConferences" component={withAuth(props => <ListConferences />)} />
+                            <Route path="/HomeUser/ListSessions" component={withAuth(props => <ListSessions />)} />
+                            <Route path="/HomeUser/ListWorkshops" component={withAuth(props => <ListWorkshops />)} />
+                            <Route path="/HomeUser/ListArticles" component={withAuth(props => <ListArticles />)} />
                             <Route path="/HomeUser/AddSession" component={withAuth(props => <AddSession />)} />
                             <Route path="/HomeUser/AddWorkshop" component={withAuth(props => <AddWorkshop />)} />
                             <Route path="/HomeUser/AddArticle" component={withAuth(props => <AddArticle />)} />

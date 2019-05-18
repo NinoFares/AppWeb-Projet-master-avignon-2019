@@ -5,6 +5,9 @@ import {userService} from "../../_services";
 import {Button, FormGroup, FormControl, FormLabel,Form} from "react-bootstrap";
 import DataPicker from 'react-datepicker';
 
+import Swal from 'sweetalert2';
+import {history} from "../../_helpers";
+
 import "react-datepicker/dist/react-datepicker.css";
 
 export class AddSession extends Component{
@@ -15,8 +18,11 @@ export class AddSession extends Component{
             selectedConf: null,
             name: '',
             location: '',
+            session_chear: '',
+            description: '',
             date_begin: new Date(),
             date_end: new Date(),
+            heure_debut: new Date()
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -40,9 +46,15 @@ export class AddSession extends Component{
             date_end: date
         })
     }
+    handleChangeHeure = (date) =>{
+        date.setHours(date.getHours())
+        this.setState({
+            heure_debut: date
+        })
+    }
 
     validateForm() {
-        return this.state.selectedConf != null &&  this.state.name.length > 0 && this.state.location.length > 0;
+        return this.state.selectedConf != null &&  this.state.name.length > 0 && this.state.location.length > 0 && this.state.session_chear.length > 0;
     }
 
     handleSubmit(event) {
@@ -51,7 +63,12 @@ export class AddSession extends Component{
         payload._id = JSON.parse(localStorage.getItem('user'))._id
         userService.addSession(payload)
             .then(result => {
-                console.log("Requete réussis")
+                Swal.fire(
+                    'Session crée',
+                    'Votre session a bien été créer',
+                    'success'
+                )
+                history.push('/HomeUser/ListSessions')
             })
             .catch(err => {
                 console.log("Requete refusé !")
@@ -95,15 +112,48 @@ export class AddSession extends Component{
                             />
                         </FormGroup>
 
+                        <FormGroup controlId="session_chear" bsSize="large">
+                            <FormLabel>Session Chear :</FormLabel>
+                            <FormControl
+                                type="text"
+                                autoFocus
+                                value={this.state.session_chear}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
+
+                        <FormGroup controlId="description" bsSize="large">
+                            <FormLabel>Description :</FormLabel>
+                            <FormControl
+                                type="text"
+                                autoFocus
+                                value={this.state.description}
+                                onChange={this.handleChange}
+                            />
+                        </FormGroup>
+
 
                         <FormGroup controlId="date_begin" bsSize="large">
-                            <FormLabel>Date begin :</FormLabel>
+                            <FormLabel>Date begin : &nbsp;&nbsp;</FormLabel>
                             <DataPicker selected={this.state.date_begin} onChange={this.handleChangeBegin}/>
                         </FormGroup>
 
                         <FormGroup controlId="date_end" bsSize="large">
-                            <FormLabel>Date End :</FormLabel>
+                            <FormLabel>Date End : &nbsp;&nbsp;</FormLabel>
                             <DataPicker selected={this.state.date_end} onChange={this.handleChangeEnd}/>
+                        </FormGroup>
+
+                        <FormGroup controlId="heure_debut" bsSize="large">
+                            <FormLabel>Heure : &nbsp;&nbsp;</FormLabel>
+                            <DataPicker
+                                selected={this.state.heure_debut}
+                                onChange={this.handleChangeHeure}
+                                showTimeSelect
+                                showTimeSelectOnly
+                                timeIntervals={15}
+                                dateFormat="h:mm aa"
+                                timeCaption="Time"
+                            />
                         </FormGroup>
 
 

@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 
-import {UserProfile} from '../UserProfile'
 import {AdminNav} from "../Nav";
 
 class HomeAdmin extends Component{
@@ -14,7 +13,7 @@ class HomeAdmin extends Component{
     render() {
         return(
             <div>
-                <UserProfile/>
+                <h1>Bienvenu {JSON.parse(localStorage.getItem('user')).name}</h1>
                 <AdminNav/>
             </div>
         )

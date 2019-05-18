@@ -5,6 +5,9 @@ import {GetSelectConferences} from "../getSelectConferences";
 import {userService} from "../../_services";
 import {Button, FormGroup, FormControl, FormLabel,Form} from "react-bootstrap";
 
+import Swal from 'sweetalert2';
+import {history} from "../../_helpers";
+
 export class AddWorkshop extends Component{
 
     constructor(props){
@@ -38,7 +41,12 @@ export class AddWorkshop extends Component{
         payload._id = JSON.parse(localStorage.getItem('user'))._id
         userService.addWorkshop(payload)
             .then(result => {
-                console.log("Requete réussis")
+                Swal.fire(
+                    'Workshop crée',
+                    'Votre Workshop a bien été créer',
+                    'success'
+                )
+                history.push('/HomeUser/ListWorkshops  ')
             })
             .catch(err => {
                 console.log("Requete refusé !")

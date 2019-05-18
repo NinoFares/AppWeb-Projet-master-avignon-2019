@@ -74,7 +74,7 @@ class AdminNav extends Component{
                                         <i className="fas fa-power-off" style={{ fontSize: '1.75em' }} />
                                     </NavIcon>
                                     <NavText>
-                                        Log Out
+                                        Déconnexion
                                     </NavText>
                                 </NavItem>
                             </SideNav.Nav>

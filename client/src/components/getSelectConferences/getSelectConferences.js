@@ -20,7 +20,7 @@ export class GetSelectConferences extends Component{
     }
 
     componentDidMount() {
-        userService.getConferece(JSON.parse(localStorage.getItem('user'))._id)
+        userService.getConference(JSON.parse(localStorage.getItem('user'))._id)
             .then(result=>{
                 let tmp = [result.length]
                 for(let i=0;i<result.length;i++){

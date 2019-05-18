@@ -5,14 +5,39 @@ export const userService = {
     logout,
     register,
     addConference,
-    getConferece,
     addSession,
     addWorkshop,
     addArticle,
+
+    getConference,
     getSession,
     getProfil,
-    getListUsersConf
+    getListUsersConf,
+    getListUsersConfN,
+    getArticle,
+    getWorkshopC,
+    getWorkshopS,
+
+    confirmerUser,
+
+    delConference,
+    delSession,
+    delArticle,
+    delWorkshop,
+    delUser,
 };
+
+//Fonction qui gére les requetes sécurisé
+function requeteSec(req,payload){
+    payload.token = JSON.parse(localStorage.getItem('user')).token;
+    return axios.post(req,payload)
+        .then(response =>{
+            return response.data;
+        })
+        .catch(err => {
+            return Promise.reject(err)
+        })
+}
 
 function login(username,password){
     let payload = {
@@ -39,84 +64,6 @@ function login(username,password){
         });
 }
 
-function logout(){
-    localStorage.removeItem('user');
-    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    axios('logout');
-}
-
-
-function register(user){
-    return axios.post('/register',user)
-        .then(response =>{
-            console.log(response)
-        })
-        .catch(err =>{
-            Promise.reject('Erreur, Registration failed')
-        });
-}
-
-function addConference(payload){
-    return axios.post('/addConference',payload)
-        .then(response =>{
-            return response.data;
-        })
-        .catch(err => {
-            return Promise.reject(err)
-        })
-}
-
-function addSession(payload){
-    return axios.post('/createSession',payload)
-        .then(response =>{
-            return response.data;
-        })
-        .catch(err => {
-            return Promise.reject(err)
-        })
-}
-
-function addWorkshop(payload){
-    return axios.post('/createWorkshop',payload)
-        .then(response =>{
-            return response.data;
-        })
-        .catch(err => {
-            return Promise.reject(err)
-        })
-}
-
-function addArticle(payload){
-    return axios.post('/createArticle',payload)
-        .then(response =>{
-            return response.data;
-        })
-        .catch(err => {
-            return Promise.reject(err)
-        })
-}
-
-function getConferece(id){
-    return axios.post('/getUserConference', {user_id: id})
-        .then(result => {
-            return result.data
-        })
-        .catch(err => {
-            return Promise.reject('Erreur, get User Conference');
-        });
-}
-
-function getSession(id){
-    return axios.post('/getUserSession', {conf_id: id})
-        .then(result => {
-            return result.data
-        })
-        .catch(err => {
-            return Promise.reject('Erreur, get User Conference');
-        });
-}
-
-
 function handleResponse(response) {
 
     if (response.data.name){
@@ -124,32 +71,101 @@ function handleResponse(response) {
         return data;
     }
     else{
-            if (response.status === 401) {
-                // auto logout if 401 response returned from api
-                logout();
-                window.location.reload(true);
-            }
-            const error = response.data;
-            return Promise.reject(error);
+        if (response.status === 401) {
+            // auto logout if 401 response returned from api
+            logout();
+            window.location.reload(true);
         }
+        const error = response.data;
+        return Promise.reject(error);
+    }
+}
+
+function logout(){
+    localStorage.removeItem('user');
+}
+
+
+function register(user){
+    return axios.post('/register',user)
+        .then(response =>{
+        })
+        .catch(err =>{
+            Promise.reject('Erreur, Registration failed')
+        });
+}
+
+
+//requetes pour ajouter
+function addConference(payload){
+    return requeteSec('/addConference',payload);
+}
+
+function addSession(payload){
+    return requeteSec('/createSession',payload)
+}
+
+function addWorkshop(payload){
+    return requeteSec('/createWorkshop',payload)
+}
+
+function addArticle(payload){
+    return requeteSec('/createArticle',payload)
+}
+
+
+//Requete pour récuprer
+function getConference(id){
+    return requeteSec('/getUserConference', {user_id: id});
+}
+
+function getSession(id){
+    return requeteSec('/getUserSession', {conf_id: id});
 }
 
 function getProfil(id){
-    return axios.post('/getProfil', {user_id: id})
-        .then(result => {
-            return result.data
-        })
-        .catch(err => {
-            return Promise.reject('Erreur, get User Profil');
-        });
+    return requeteSec('/getProfil', {user_id: id});
 }
 
 function getListUsersConf(id_conference){
-    return axios.post('/getListUsersConf', {conf_id: id_conference})
-        .then(result => {
-            return result.data
-        })
-        .catch(err => {
-            return Promise.reject('Erreur, get List Users Conference');
-        });
+
+    return requeteSec('/getListUsersConf', {conf_id: id_conference})
+}
+function getListUsersConfN(id_conference){
+    return requeteSec('/getListUsersConfN',{conf_id:id_conference})
+}
+function getArticle(id_session){
+    return requeteSec('/getArticle',{session_id:id_session})
+}
+
+function getWorkshopC(id_conf){
+    return requeteSec('/getWorkshopC',{conf_id:id_conf})
+}
+
+function getWorkshopS(id_session){
+    return requeteSec('/getWorkshopS',{session_id:id_session})
+}
+
+
+//Suppression
+function delConference(id){
+    return requeteSec('/delConference',{conf_id:id})
+}
+function delSession(id){
+    return requeteSec('/delSession',{session_id:id})
+}
+function delWorkshop(id){
+    return requeteSec('/delWorkshop',{workshop_id:id})
+}
+function delArticle(id){
+    return requeteSec('/delArticle',{article_id:id})
+}
+function delUser(id){
+    return requeteSec('/delUser',{user_id:id})
+}
+
+
+
+function confirmerUser(id){
+    return requeteSec('/confirmerUser',{user_id:id})
 }

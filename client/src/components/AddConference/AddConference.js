@@ -1,9 +1,13 @@
 import React,{Component} from 'react';
+
 import {Button, FormGroup, FormControl, FormLabel,Form} from "react-bootstrap";
 import DataPicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
 import {userService} from "../../_services";
+import Swal from 'sweetalert2'
+import {Route} from 'react-router-dom'
+import {history} from "../../_helpers";
 
 
 // TODO: Arranger l'envoie de photo
@@ -55,7 +59,12 @@ class AddConference extends Component{
         payload._id = JSON.parse(localStorage.getItem('user'))._id
         userService.addConference(payload)
             .then(result => {
-                console.log("Requete réussis")
+                Swal.fire(
+                    'Conference crée',
+                    'Votre conférence sera modifiable que quand un administrateur la validera',
+                    'success'
+                );
+                history.push('/HomeUser/ListConferences');
             })
             .catch(err =>{
                 console.log("Requete refusé !")
@@ -77,10 +86,10 @@ class AddConference extends Component{
                     <FormGroup controlId="name" bsSize="large">
                         <FormLabel>Nom :</FormLabel>
                         <FormControl
-                        type="text"
-                        autoFocus
-                        value={this.state.name}
-                        onChange={this.handleChange}
+                            type="text"
+                            autoFocus
+                            value={this.state.name}
+                            onChange={this.handleChange}
                         />
                     </FormGroup>
 
@@ -115,15 +124,14 @@ class AddConference extends Component{
                     </FormGroup>
 
                     <FormGroup controlId="topic" bsSize="large">
-                        <FormLabel >Topic :</FormLabel>
+                        <FormLabel>Topic :</FormLabel>
                         <FormControl
                             type="text"
                             autoFocus
                             value={this.state.topic}
-                           onChange={this.handleChange}
+                            onChange={this.handleChange}
                         />
                     </FormGroup>
-
                     <Button
                         type="submit"
                         size="lg"

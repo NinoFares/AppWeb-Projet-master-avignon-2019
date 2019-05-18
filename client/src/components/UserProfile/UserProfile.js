@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 
-import {adminServices, userService} from "../../_services";
+import { userService} from "../../_services";
 
 
 export class UserProfile extends Component{
@@ -24,7 +24,7 @@ export class UserProfile extends Component{
             .catch(err => {
                 console.log(err);
             })
-        userService.getConferece(JSON.parse(localStorage.getItem('user'))._id)
+        userService.getConference(JSON.parse(localStorage.getItem('user'))._id)
             .then(result => {
                 return this.setState({nbreconf: result.length})
             })

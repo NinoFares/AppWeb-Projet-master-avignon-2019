@@ -70,7 +70,7 @@ class Register extends Component{
                   <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group as={Col} md="6" controlId="username">
-                  <Form.Label>Username *</Form.Label>
+                  <Form.Label>Pseudo *</Form.Label>
                   <InputGroup>
                     <InputGroup.Prepend>
                       <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -78,7 +78,7 @@ class Register extends Component{
                     <Form.Control
                         type="text"
                         value={this.state.username}
-                        placeholder="Username"
+                        placeholder="Pseudo"
                         onChange={this.handleChange}
                         aria-describedby="inputGroupPrepend"
                         required
@@ -131,14 +131,14 @@ class Register extends Component{
                     disabled={!this.validateForm()}
                     type="submit"
                 >
-                  Validate
+                  Valider
                 </Button>
                 <Link
                     to="/login"
                 >
                   <Button
                       size="lg"
-                  >Cancel</Button>
+                  >Annuler</Button>
                 </Link>
               </ButtonGroup>
             </Form>

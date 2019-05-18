@@ -1,33 +1,39 @@
 import React,{Component} from 'react';
 
-import ReactTable from "react-table";
-import {adminServices, userService} from "../../_services";
 
-import 'react-table/react-table.css'
-import {Button} from "react-bootstrap";
 import {Route} from "react-router-dom";
+import {Button, Form} from "react-bootstrap";
+import ReactTable from "react-table";
+import {GetSelectConferences} from "../getSelectConferences";
+import {adminServices, userService} from "../../_services";
 import Swal from "sweetalert2";
 
 
-class ListConferences extends Component{
+export class ListSessions extends Component{
+
 
     constructor(props){
         super(props);
 
         this.state={
+            selectedConf: null,
             data : [],
-            columns: [
+            columns : [
                 {
                     id: "checkbox",
                     Cell: props => <Button variant="danger" onClick={() => this.submitClick(props.original.id)}><i className="fas fa-trash-alt"></i></Button>
                 },
                 {
-                    Header: 'ID',
+                    Header : 'ID',
                     accessor: 'id',
                 },
                 {
                     Header: 'Name',
-                    accessor: 'name'
+                    accessor: 'title'
+                },
+                {
+                    Header:'Location',
+                    accessor:'location'
                 },
                 {
                     Header: 'Date Begin',
@@ -38,21 +44,24 @@ class ListConferences extends Component{
                     accessor: 'date_end'
                 },
                 {
-                    Header: 'ID_User',
-                    accessor: 'id_user'
+                    Header: 'ID_conference',
+                    accessor: 'id_conference'
                 },
                 {
-                    Header: 'Topic',
-                    accessor: 'topic'
+                    Header: 'Session Chear',
+                    accessor: 'session_chear'
+                },
+                {
+                    Header: 'Description',
+                    accessor: 'description'
                 },
             ]
         }
-
     }
 
     submitClick =(value) =>{
         Swal.fire({
-            title: 'Supprimer la conference?',
+            title: 'Suprimmer la Session?',
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -61,47 +70,52 @@ class ListConferences extends Component{
             cancelButtonText: 'Annuler'
         }).then((result) => {
             if (result.value) {
-                userService.delConference(value)
+                userService.delSession(value)
                 Swal.fire(
                     'Supprimé!',
-                    'La conference a bien été supprimé.',
+                    'Session a bien été supprimé.',
                     'success'
                 )
             }
             window.location.reload();
-
         })
     }
+    onChangeSelectConf(newConf){
+        this.setState({
+            selectedConf: newConf
+        })
 
-
-
-    componentDidMount() {
-        let user_id = JSON.parse(localStorage.getItem('user'))._id;
-        userService.getConference(user_id)
+        userService.getSession(newConf)
             .then(result =>{
-                this.setState(()=>{
-                    return {data:result}
+                this.setState({
+                    data:result
                 })
             })
-            .catch(err =>{
-                console.log(err);
+            .catch(err=>{
+
             })
     }
 
-
     render() {
-
         return (
             <div>
-                <h2>Vos conferences : </h2>
+                <h2>Vos Sessions : </h2>
                 <br/>
                 <Route render={({ location, history }) => (
                     <Button onClick={()=>{
-                        history.push("/HomeUser/AddConference")
-                    }}>Créer une nouvelle conférence</Button>
-                    )}
-                    />
+                        history.push("/HomeUser/AddSession")
+                    }}>Créer une nouvelle Session</Button>
+                )}
+                />
                 <br/>
+
+                <Form.Group controlId="SelectConferences">
+                    <Form.Label>Choisir la conférence :</Form.Label>
+                    <GetSelectConferences changeSelectConf={this.onChangeSelectConf.bind(this)}/>
+                </Form.Group>
+
+                <br/>
+
                 <ReactTable
                     defaultPageSize={5}
                     data={this.state.data}
@@ -111,5 +125,3 @@ class ListConferences extends Component{
         );
     }
 }
-
-export {ListConferences}

@@ -42,25 +42,22 @@ app.listen(port, () => `Server running on port ${port}`);
 //      })
 // })
 
-const withAuth = function(req, res, next) {
-     const token =
-         req.body.token ||
-         req.query.token ||
-         req.headers['x-access-token'] ||
-         req.cookies.token;
 
-     if (!token) {
-          res.status(401).send('Unauthorized: No token provided');
-     } else {
-          jwt.verify(token, secret, function(err, decoded) {
-               if (err) {
-                    res.status(401).send('Unauthorized: Invalid token');
-               } else {
-                    req.email = decoded.email;
-                    next();
-               }
-          });
-     }
+const withAuth = function(req, res, next) {
+    const token = req.body.token;
+
+    if (!token) {
+        res.status(401).send('Unauthorized: No token provided');
+    } else {
+        jwt.verify(token, secret, function (err, decoded) {
+            if (err) {
+                res.status(401).send('Unauthorized: Invalid token');
+            } else {
+                req.email = decoded.email;
+                next();
+            }
+        });
+    }
 }
 
 /**
@@ -91,7 +88,7 @@ app.post('/login',(request,response)=>{
 
      pool.getConnection((err,connection)=>{
           if(err) throw err;
-          connection.query("select * from users where email = '"+usermail+"'",(err,result)=>{
+          connection.query("select * from users where email = '"+usermail+"' and isEnabled = 1",(err,result)=>{
                connection.release();
                if(err) throw err;
                else if ((result.length != 0) && (result[0].password == sha1(password))) {
@@ -107,7 +104,11 @@ app.post('/login',(request,response)=>{
                     let token = jwt.sign({usermail},secret,{
                          expiresIn:'1h'
                     });
-                    response.cookie('token',token,{httpOnly:true}).send(responseData);
+
+                    responseData.token = token;
+
+                    //Envoie du token pour le localstorage
+                    response.send(responseData);
                }
                else {
                     //Authentification échoué
@@ -133,6 +134,39 @@ app.post('/users',withAuth,(request,response)=>{
      })
 });
 
+/***********************      Route qui import des utilisateurs confirmé  ***********************/
+app.post('/usersConfirme',withAuth,(request,response)=>{
+
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from users where isEnabled = 1",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+/***********************      Route qui import des utilisateurs confirmé  ***********************/
+app.post('/usersNConfirme',withAuth,(request,response)=>{
+
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from users where isEnabled = 0",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+
 /***********************      Route qui import des conferences  ***********************/
 app.post('/conferences',withAuth,(request,response)=>{
 
@@ -149,33 +183,84 @@ app.post('/conferences',withAuth,(request,response)=>{
      })
 });
 
+/***********************      Route qui import des conferences  ***********************/
+app.post('/conferencesC',withAuth,(request,response)=>{
+
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from conference where valide = 1",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+/***********************      Route qui import des conferences  ***********************/
+app.post('/conferencesN',withAuth,(request,response)=>{
+
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from conference where valide = 0",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+/***********************      Route confirme des conferences  ***********************/
+app.post('/confirmeConference', withAuth, (request, response) => {
+
+    let conf_id = request.body.conf_id;
+
+    let sql = "update conference set valide = 1 where id = " + conf_id + ";"
+
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(sql, (err, result) => {
+            connection.release();
+            if (err) throw err;
+            else {
+                response.send(JSON.stringify(result));
+            }
+        })
+    });
+});
+
 /***********************      Route qui set des conferences  ***********************/
 
 
-app.post('/addConference',(request,response)=>{
+app.post('/addConference', (request, response) => {
 
 
-     let name = request.body.name;
-     let id_user = request.body._id;
-     let description = request.body.description;
-     let logo = "NULL";
-     const date_begin = new Date(request.body.date_begin).toMysqlFormat();
-     const date_end = new Date(request.body.date_end).toMysqlFormat();
-     let topic = request.body.topic
+    let name = request.body.name;
+    let id_user = request.body._id;
+    let description = request.body.description;
+    let logo = "NULL";
+    const date_begin = new Date(request.body.date_begin).toMysqlFormat();
+    const date_end = new Date(request.body.date_end).toMysqlFormat();
+    let topic = request.body.topic
 
 
-     let sql = "insert into conference (name,description,logo,date_begin,date_end,topic,id_user,valide) values ('"+name+"','"+description+"','"+logo+"','"+date_begin+"','"+date_end+"','"+topic+"','"+id_user+"',0)";
+    let sql = "insert into conference (name,description,logo,date_begin,date_end,topic,id_user,valide) values ('" + name + "','" + description + "','" + logo + "','" + date_begin + "','" + date_end + "','" + topic + "','" + id_user + "',0)";
 
-     pool.getConnection((err,connection)=>{
-          if(err) throw err;
-          connection.query(sql,(err,result)=>{
-               connection.release();
-               if(err) throw err;
-               else{
-                    response.send();
-               }
-          })
-     })
+    pool.getConnection((err, connection) => {
+        if (err) throw err;
+        connection.query(sql, (err, result) => {
+            connection.release();
+            if (err) throw err;
+            else {
+                response.send();
+            }
+        })
+    })
 });
 
 /***********************      Route qui import des conferences d'un user  ***********************/
@@ -185,7 +270,7 @@ app.post('/getUserConference',(request,response)=>{
 
      pool.getConnection((err,connection)=>{
           if(err) throw err;
-          connection.query("select * from conference where id_user = '"+user_id+"';",(err,result)=>{
+          connection.query("select * from conference where id_user = "+user_id+" and valide = 1;",(err,result)=>{
                connection.release();
                if(err) throw err;
                else{
@@ -195,7 +280,7 @@ app.post('/getUserConference',(request,response)=>{
      })
 });
 
-/***********************      Route qui import des Sessions d'un user  ***********************/
+/***********************      Route qui import des Sessions d'une conference  ***********************/
 app.post('/getUserSession',(request,response)=>{
 
     conf_id = request.body.conf_id;
@@ -212,6 +297,58 @@ app.post('/getUserSession',(request,response)=>{
     })
 });
 
+/***********************      Route qui import des articles d'une session  ***********************/
+app.post('/getArticle',(request,response)=>{
+
+    session_id = request.body.session_id;
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from article where id_session = '"+session_id+"';",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+/***********************      Route qui import des workshops d'une session  ***********************/
+app.post('/getWorkshopS',(request,response)=>{
+
+    session_id = request.body.session_id;
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from workshop where id_session = '"+session_id+"';",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+/***********************      Route qui import des workshops d'une conference  ***********************/
+app.post('/getWorkshopC',(request,response)=>{
+
+    conf_id = request.body.conf_id;
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("select * from workshop where id_conference = '"+conf_id+"';",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+
 /***********************      Route qui enregistre un utilisateur  ***********************/
 
 app.post('/register',(request,response) => {
@@ -221,7 +358,7 @@ app.post('/register',(request,response) => {
      let email = request.body.email;
      let password = request.body.password;
 
-     let sql = "insert into users (email,password,name,username,roles) values ('"+email+"',sha1('"+password+"'),'"+nom+"','"+username+"','ROLE_USER')";
+     let sql = "insert into users (email,password,name,username,roles,isEnabled) values ('"+email+"',sha1('"+password+"'),'"+nom+"','"+username+"','ROLE_USER',0)";
 
      pool.getConnection((err,connection)=>{
           if(err) throw err;
@@ -266,9 +403,11 @@ app.post('/createSession',withAuth,(req,res)=>{
      let date_begin = new Date(req.body.date_begin).toMysqlFormat();
      let date_end = new Date(req.body.date_end).toMysqlFormat();
      let id_conf = req.body.selectedConf;
-     let id_room = null;
+     let session_chear = req.body.session_chear;
+     let description = req.body.description;
+     let heure = req.body.heure_debut;
 
-     let sql = "insert into session (title,location,date_begin,date_end,id_conference) values ('"+titre+"','"+location+"','"+date_begin+"','"+date_end+"','"+id_conf+"')"
+     let sql = "insert into session (title,location,session_chear,description,date_begin,date_end,heure_debut,id_conference) values ('"+titre+"','"+location+"','"+session_chear+"','"+description+"','"+date_begin+"','"+date_end+"','"+heure+"','"+id_conf+"')"
 
     pool.getConnection((err,connection)=>{
         if(err) throw err;
@@ -311,12 +450,55 @@ app.post('/createWorkshop',withAuth,(req,res)=>{
 
 app.post('/createArticle',withAuth,(req,res)=>{
 
+
     let titre = req.body.name;
     let descrip  = req.body.subject;
     let auteur = req.body.auteur;
     let id_session = req.body.selectedSession;
 
-    let sql = "insert into article (id,title,description,id_session,auteur) values (1,'"+titre+"','"+descrip+"','"+id_session+"','"+auteur+"')"
+    let sql = "insert into article (title,description,id_session,auteur) values ('"+titre+"','"+descrip+"','"+id_session+"','"+auteur+"')"
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
+})
+
+/**************** Suppression conférencier ******************/
+
+app.post('/delConferencier',withAuth,(req,res)=>{
+
+    let id = req.body.id;
+
+    let sql = "update users set isEnabled = -1 WHERE id = "+id+";";
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
+});
+
+/**************** Confirmation conférencier ******************/
+
+app.post('/confirmationConferencier',withAuth,(req,res)=>{
+
+    let id = req.body.id;
+
+    console.log(id);
+
+    let sql = "update users set isEnabled = 1 WHERE id = "+id+";";
 
     pool.getConnection((err,connection)=>{
         if(err) throw err;
@@ -331,17 +513,132 @@ app.post('/createArticle',withAuth,(req,res)=>{
 })
 
 
+/**
+ * Supression
+ */
+
+/**************** Suppression Conference ******************/
+app.post('/delConference',withAuth,(req,res)=>{
+
+    let id = req.body.conf_id;
+
+    let sql = "update conference set valide = -1 WHERE id = "+id+";";
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
+});
+
+/**************** Suppression Session ******************/
+app.post('/delSession',withAuth,(req,res)=>{
+
+    let id = req.body.session_id;
+
+    let sql = "delete from session WHERE id = "+id+";";
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
+});
+
+/**************** Suppression Workshop ******************/
+app.post('/delWorkshop',withAuth,(req,res)=>{
+
+    let id = req.body.workshop_id;
+
+    let sql = "delete from workshop WHERE id = "+id+";";
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
+});
+
+/**************** Suppression Article ******************/
+app.post('/delArticle',withAuth,(req,res)=>{
+
+    let id = req.body.article_id;
+
+    let sql = "delete from article WHERE id = "+id+";"
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
+});
+
+/**************** Suppression Users ******************/
+app.post('/delUser',withAuth,(req,res)=>{
+
+    let id = req.body.user_id;
+
+    let sql = "update user set status = -1 WHERE email = '"+id+"';"
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
+});
+
+/**************** Confirmer Users ******************/
+app.post('/confirmerUser',withAuth,(req,res)=>{
+
+    let id = req.body.user_id;
+
+    let sql = "update user set status = 1 WHERE email = '"+id+"';"
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query(sql,(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                res.send();
+            }
+        })
+    })
+});
+
+
+
 
 /***********************      Token Check  ***********************/
 
 app.post('/checkToken', withAuth, function(req, res) {
      res.sendStatus(200);
 });
-
-/***********************      LogOut  ***********************/
-app.post('/logout',withAuth,function(req,res){
-     res.cookies.destroy();
-})
 
 
 // TODO: est ce que mon code pour l'importaion du profil est bon?
@@ -374,7 +671,25 @@ app.post('/getListUsersConf',(request,response)=>{
 
     pool.getConnection((err,connection)=>{
         if(err) throw err;
-        connection.query("SELECT * FROM user u, session s, conference c WHERE c.id=s.id_conference and s.id=u.idSession and c.id='"+conf_id+"';",(err,result)=>{
+        connection.query("SELECT * FROM user where idConf = '"+conf_id+"' and status = 1 ;",(err,result)=>{
+            connection.release();
+            if(err) throw err;
+            else{
+                response.send(JSON.stringify(result));
+            }
+        })
+    })
+});
+
+/***********************      Affichage des Utilisateurs d'une conference  ***********************/
+app.post('/getListUsersConfN',(request,response)=>{
+
+    let conf_id = request.body.conf_id;
+
+
+    pool.getConnection((err,connection)=>{
+        if(err) throw err;
+        connection.query("SELECT * FROM user where idConf = '"+conf_id+"' and status = 0;",(err,result)=>{
             connection.release();
             if(err) throw err;
             else{
