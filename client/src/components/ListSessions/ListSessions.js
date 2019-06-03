@@ -1,3 +1,9 @@
+/**
+ * Page qui permet d'afficher la liste des session d'un utilisateur
+ */
+
+
+
 import React,{Component} from 'react';
 
 
@@ -5,6 +11,7 @@ import {Route} from "react-router-dom";
 import {Button, Form} from "react-bootstrap";
 import ReactTable from "react-table";
 import {GetSelectConferences} from "../getSelectConferences";
+import {GetSelectWorkshop} from "../getSelectWorkshops";
 import {adminServices, userService} from "../../_services";
 import Swal from "sweetalert2";
 
@@ -96,6 +103,22 @@ export class ListSessions extends Component{
             })
     }
 
+    onChangeSelectWorkshop(newWorkshop) {
+        this.setState({
+            selectedWorkshop: newWorkshop
+        })
+
+        userService.getSessionWorkshop(newWorkshop)
+            .then(result => {
+                this.setState({
+                    data:result
+                })
+            })
+            .catch(err =>{
+
+            })
+    }
+
     render() {
         return (
             <div>
@@ -112,6 +135,11 @@ export class ListSessions extends Component{
                 <Form.Group controlId="SelectConferences">
                     <Form.Label>Choisir la conférence :</Form.Label>
                     <GetSelectConferences changeSelectConf={this.onChangeSelectConf.bind(this)}/>
+                </Form.Group>
+
+                <Form.Group controlId="SelectConferences">
+                    <Form.Label>Choisir Workshop (facultatif) :</Form.Label>
+                    <GetSelectWorkshop confSelected={this.state.selectedConf} changeSelectWorkshop={this.onChangeSelectWorkshop.bind(this)}/>
                 </Form.Group>
 
                 <br/>

@@ -1,3 +1,7 @@
+/**
+ * Page qui affiche toutes les conferennces interface administrateur
+ */
+
 import React,{Component} from 'react';
 
 import ReactTable from "react-table";

@@ -1,3 +1,7 @@
+/**
+ * Page interface administrateur
+ */
+
 import React,{Component} from 'react';
 
 import {AdminNav} from "../Nav";

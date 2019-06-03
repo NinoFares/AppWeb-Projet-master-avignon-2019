@@ -1,3 +1,7 @@
+/**
+ * Page pour ajouter une session
+ */
+
 import React,{ Component } from 'react';
 
 import {GetSelectConferences} from "../getSelectConferences";
@@ -9,6 +13,7 @@ import Swal from 'sweetalert2';
 import {history} from "../../_helpers";
 
 import "react-datepicker/dist/react-datepicker.css";
+import {GetSelectWorkshop} from "../getSelectWorkshops";
 
 export class AddSession extends Component{
 
@@ -16,6 +21,7 @@ export class AddSession extends Component{
         super(props);
         this.state={
             selectedConf: null,
+            selectedWorkshop: null,
             name: '',
             location: '',
             session_chear: '',
@@ -81,6 +87,13 @@ export class AddSession extends Component{
         })
     }
 
+    onChangeSelectWorkshop(newWorkshop) {
+        this.setState({
+            selectedWorkshop: newWorkshop
+        })
+
+    }
+
         render() {
             return (
                 <div>
@@ -90,6 +103,11 @@ export class AddSession extends Component{
                         <Form.Group controlId="SelectConferences">
                             <Form.Label>Choisir la conférence :</Form.Label>
                             <GetSelectConferences changeSelectConf={this.onChangeSelectConf.bind(this)}/>
+                        </Form.Group>
+
+                        <Form.Group controlId="SelectConferences">
+                            <Form.Label>Choisir Workshop (facultatif) :</Form.Label>
+                            <GetSelectWorkshop confSelected={this.state.selectedConf} changeSelectWorkshop={this.onChangeSelectWorkshop.bind(this)}/>
                         </Form.Group>
 
                         <FormGroup controlId="name" bsSize="large">

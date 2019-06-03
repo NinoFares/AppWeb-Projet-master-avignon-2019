@@ -1,3 +1,10 @@
+/**
+ * Constantes pour l'administrateur pour le module redux
+ *
+ *
+ * @type {{GETALL_SUCCESS: string, GETALL_REQUEST: string, GETALL_FAILURE: string, DELETE_SUCCESS: string, DELETE_FAILURE: string, DELETE_REQUEST: string}}
+ */
+
 export const adminConstants ={
     GETALL_REQUEST: 'ADMIN_GETALL_REQUEST',
     GETALL_SUCCESS: 'ADMIN_GETALL_SUCCESS',

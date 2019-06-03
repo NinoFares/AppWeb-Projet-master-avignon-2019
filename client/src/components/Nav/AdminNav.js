@@ -1,3 +1,8 @@
+/**
+ *
+ * Menu de navigation administrateur
+ */
+
 import React,{ Component } from 'react';
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 
@@ -8,7 +13,6 @@ import {HomeUser} from "../Home";
 import {userActions} from "../../_actions";
 import {Users} from '../Users'
 import {Conferences} from "../Conferences";
-import { history } from "../../_helpers";
 import withAuth from "../../Auth"
 
 

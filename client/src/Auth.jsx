@@ -1,3 +1,7 @@
+/**
+ * Route spécial pour la rediréction si l'utilisateur est deja connecté en vérifiant le token.
+ */
+
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 

@@ -1,3 +1,7 @@
+/**
+ * Page pour ajouter un article
+ */
+
 import React,{Component} from 'react';
 
 

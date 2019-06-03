@@ -1,3 +1,7 @@
+/**
+ * Select qui affiche toutes les conférences
+ */
+
 import React,{Component} from 'react';
 
 import Select from 'react-select'

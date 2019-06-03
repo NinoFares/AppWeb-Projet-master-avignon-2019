@@ -1,3 +1,8 @@
+/**
+ * Page qui permet d'afficher la liste des conférence d'un utilisateur
+ */
+
+
 import React,{Component} from 'react';
 
 import ReactTable from "react-table";

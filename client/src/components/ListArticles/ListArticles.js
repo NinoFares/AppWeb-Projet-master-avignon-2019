@@ -1,3 +1,7 @@
+/**
+ * Page pour afficher la liste des article
+ */
+
 import React,{Component} from 'react';
 
 

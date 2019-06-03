@@ -1,3 +1,7 @@
+/**
+ * Page pour afficher le profile d'un conferencier
+ */
+
 import React,{Component} from 'react'
 
 import { userService} from "../../_services";

@@ -1,3 +1,7 @@
+/**
+ * Reducers pour REDUX
+ */
+
 import {combineReducers} from 'redux';
 
 import {authentification} from "./authentification.reducer";

@@ -1,3 +1,7 @@
+/**
+ * Page interface Utilisateur
+ */
+
 import React,{Component} from 'react';
 
 import {UserProfile} from '../UserProfile'

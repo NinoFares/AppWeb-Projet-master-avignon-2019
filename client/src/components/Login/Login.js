@@ -1,3 +1,7 @@
+/**
+ * Page qui affiche l'interface d'authentification
+ */
+
 import React, { Component } from "react";
 import {Button, FormGroup, FormControl, ButtonGroup} from "react-bootstrap";
 import { Link,Redirect } from 'react-router-dom'

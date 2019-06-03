@@ -1,15 +1,24 @@
+/**
+ * Fichier de lancement du projet
+ */
+
 import React, { Component } from 'react';
 import './App.css';
 import {connect} from 'react-redux';
 import {Router, Route} from 'react-router-dom'
 
 import { history } from '../_helpers';
-import {Home, HomeAdmin, HomeUser} from '../components/Home'
+import { HomeAdmin, HomeUser} from '../components/Home'
 import { Login } from '../components/Login';
 import { Register } from '../components/Register'
 import { PrivateRoute } from "../components/Routes";
 import { alertActions } from "../_actions";
 import withAuth from "../Auth"
+
+
+/**
+ * Redux a été ajouté au projet et utilisé pour le login mais il peut etre supprimé
+ */
 
 class App extends Component {
 

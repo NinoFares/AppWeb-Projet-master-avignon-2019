@@ -1,11 +1,14 @@
+/**
+ * Page qui affiche la liste des workshop d'un utilisateur par rapport a une conference
+ */
+
 import React,{Component} from 'react';
 
 import {Route} from "react-router-dom";
 import {Button, Form} from "react-bootstrap";
 import ReactTable from "react-table";
 import {GetSelectConferences} from "../getSelectConferences";
-import {GetSelectSessions} from "../getSelectSessions";
-import {adminServices, userService} from "../../_services";
+import { userService} from "../../_services";
 import Swal from "sweetalert2";
 
 
@@ -90,22 +93,6 @@ export class ListWorkshops extends Component{
             })
     }
 
-    onChangeSelectSession(newSession) {
-        this.setState({
-            selectedSession: newSession
-        })
-
-        userService.getWorkshopS(newSession)
-            .then(result => {
-                this.setState({
-                    data:result
-                })
-            })
-            .catch(err =>{
-
-            })
-    }
-
 
 
     render() {
@@ -129,11 +116,6 @@ export class ListWorkshops extends Component{
 
                 <br/>
 
-                <Form.Group controlId="SelectSessions">
-                    <Form.Label>Choisir la session :</Form.Label>
-                    <GetSelectSessions confSelected={this.state.selectedConf} changeSelectSession={this.onChangeSelectSession.bind(this)}/>
-                </Form.Group>
-                <br/>
 
 
                 <ReactTable

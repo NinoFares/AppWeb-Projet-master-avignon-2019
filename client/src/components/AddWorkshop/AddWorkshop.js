@@ -1,3 +1,7 @@
+/**
+ * Page pour ajouter un workshop
+ */
+
 import React,{Component} from 'react';
 
 

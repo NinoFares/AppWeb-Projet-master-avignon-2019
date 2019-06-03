@@ -16,6 +16,8 @@ export const adminServices = {
     confirmeConference
 }
 
+
+//Gestion de requete sécurisé avec vérification du token
 function requeteSec(req,payload){
     payload.token = JSON.parse(localStorage.getItem('user')).token;
     return axios.post(req,payload)
@@ -50,7 +52,7 @@ function delUser(id){
 }
 
 function confirmerUser(id){
-    return requeteSec("/confirmationConferencier",{id:id})
+    return requeteSec("/confirmationConferencier",{value:id})
 }
 
 function getConferencesC(){

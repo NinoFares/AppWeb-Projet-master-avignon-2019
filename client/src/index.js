@@ -1,3 +1,7 @@
+/**
+ * Fichier racine du projet avec une préconfiguration de redux
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

@@ -1,5 +1,5 @@
 /**
- * Select qui affiche une session par rapport a la conference ou workshop choisi
+ * Select qui affiche les workshop par rapport a une conference choisi
  */
 
 import React,{Component} from 'react';
@@ -7,7 +7,7 @@ import React,{Component} from 'react';
 import Select from 'react-select'
 import {userService} from "../../_services";
 
-export class GetSelectSessions extends Component {
+export class GetSelectWorkshop extends Component {
 
     constructor(props) {
         super(props);
@@ -20,14 +20,14 @@ export class GetSelectSessions extends Component {
 
     handleChange = (selectedOption) => {
         this.setState({selectedOption});
-        this.props.changeSelectSession(selectedOption.value);
+        this.props.changeSelectWorkshop(selectedOption.value);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
 
         if (this.props.confSelected !== prevProps.confSelected) {
 
-            userService.getSession(this.props.confSelected)
+            userService.getWorkshop(this.props.confSelected)
                 .then(result => {
                     let tmp = [result.length]
                     for (let i = 0; i < result.length; i++) {
@@ -43,7 +43,7 @@ export class GetSelectSessions extends Component {
                     console.log(err)
                 })
         }
-}
+    }
 
     render() {
         return(
@@ -55,4 +55,3 @@ export class GetSelectSessions extends Component {
         )
     }
 }
-

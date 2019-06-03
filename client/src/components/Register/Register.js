@@ -1,8 +1,14 @@
+/**
+ * Page d'enregistrement d'un conférencier
+ */
+
 import React, { Component } from "react";
 import {Button, FormGroup, FormControl, ButtonGroup, Form, Col, InputGroup, Row} from "react-bootstrap";
 import { Link } from 'react-router-dom'
 import "./Register.css";
 import {history} from "../../_helpers";
+import Swal from 'sweetalert2';
+
 
 import {userService} from "../../_services";
 
@@ -36,7 +42,13 @@ class Register extends Component{
     let user = this.state;
     userService.register(user)
         .then(result => {
+          Swal.fire(
+              'Inscription !',
+              'Votre inscription a bien été enregistré, nous vous enverons un mail quand votre compte sera confirmé!',
+              'success'
+          )
           history.push('/login')
+
         })
         .catch(err => {
           console.log(err)

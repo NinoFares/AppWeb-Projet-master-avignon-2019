@@ -1,3 +1,7 @@
+/**
+ * Page pour ajouter une conférence
+ */
+
 import React,{Component} from 'react';
 
 import {Button, FormGroup, FormControl, FormLabel,Form} from "react-bootstrap";

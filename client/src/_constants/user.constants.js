@@ -1,3 +1,8 @@
+/**
+ * Constantes pour utilisateurs REDUX
+ * @type {{REGISTER_SUCCESS: string, REGISTER_FAILURE: string, LOGOUT: string, REGISTER_REQUEST: string, LOGIN_REQUEST: string, LOGIN_SUCCESS: string, LOGIN_FAILURE: string}}
+ */
+
 export const userConstants = {
     REGISTER_REQUEST: 'USERS_REGISTER_REQUEST',
     REGISTER_SUCCESS: 'USERS_REGISTER_SUCCESS',

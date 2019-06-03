@@ -1,3 +1,7 @@
+/**
+ * Page pour afficher tout les utilisateur interface administrateur
+ */
+
 import React,{Component} from 'react';
 
 import ReactTable from "react-table";
@@ -23,7 +27,7 @@ class Users extends Component{
                 },
                 {
                     id: "checkbox2",
-                    Cell: props => <Button variant="success" onClick={() => this.submitClick2(props.original.id)}><i className="fas fa-check"></i></Button>
+                    Cell: props => <Button variant="success" onClick={() => this.submitClick2({id:props.original.id,email:props.original.email})}><i className="fas fa-check"></i></Button>
                 },
                 {
                     Header: 'ID',
@@ -102,6 +106,7 @@ class Users extends Component{
             cancelButtonText: 'Annuler'
         }).then((result) => {
             if (result.value) {
+                console.log(value)
                 adminServices.confirmerUser(value)
                 Swal.fire(
                     'Confirmer!',

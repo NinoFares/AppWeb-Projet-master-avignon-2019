@@ -15,8 +15,8 @@ export const userService = {
     getListUsersConf,
     getListUsersConfN,
     getArticle,
-    getWorkshopC,
-    getWorkshopS,
+    getWorkshop,
+    getSessionWorkshop,
 
     confirmerUser,
 
@@ -39,6 +39,7 @@ function requeteSec(req,payload){
         })
 }
 
+//Fonction pour gérer login des utilisateurs
 function login(username,password){
     let payload = {
         email: username,
@@ -123,6 +124,14 @@ function getSession(id){
     return requeteSec('/getUserSession', {conf_id: id});
 }
 
+function getSessionWorkshop(id){
+    return requeteSec('/getSessionWorkshop', {workshop_id: id});
+}
+
+function getWorkshop(id){
+    return requeteSec('/getUserWorkshop', {conf_id: id});
+}
+
 function getProfil(id){
     return requeteSec('/getProfil', {user_id: id});
 }
@@ -136,14 +145,6 @@ function getListUsersConfN(id_conference){
 }
 function getArticle(id_session){
     return requeteSec('/getArticle',{session_id:id_session})
-}
-
-function getWorkshopC(id_conf){
-    return requeteSec('/getWorkshopC',{conf_id:id_conf})
-}
-
-function getWorkshopS(id_session){
-    return requeteSec('/getWorkshopS',{session_id:id_session})
 }
 
 
