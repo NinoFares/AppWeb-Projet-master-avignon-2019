@@ -1,5 +1,7 @@
 # Projet_Master_v2
 
+This project is a master project that aims to create a mobile application for neighborhood management in a conference, and this application is the web part that is back-office project
+
 ## Quick Start
 
 ``` bash

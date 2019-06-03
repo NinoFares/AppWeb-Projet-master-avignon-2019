@@ -40,8 +40,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="330">
-                <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
+              <first_editor relative-caret-position="30">
+                <caret line="2" column="183" selection-start-line="2" selection-start-column="183" selection-end-line="2" selection-end-column="183" />
               </first_editor>
               <second_editor />
             </state>
@@ -176,7 +176,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559566993494" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559567275110" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Bureau/Projet_Conference_2017_2018/Base_donnees/confypcs_conference.sql" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -238,7 +238,7 @@
       <workItem from="1559235655561" duration="1252000" />
       <workItem from="1559298744439" duration="3308000" />
       <workItem from="1559306663358" duration="2153000" />
-      <workItem from="1559310893811" duration="5204000" />
+      <workItem from="1559310893811" duration="5485000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout de redux a l'application et gestion des route">
       <created>1551428973490</created>
@@ -317,11 +317,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559566750176</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Mise a jour du README">
+      <created>1559567020548</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1559567020548</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249026000" />
+    <option name="totallyTimeSpent" value="249307000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -412,7 +419,8 @@
     <MESSAGE value="Ajout de page addSession et addWorkshop" />
     <MESSAGE value="Version 1 final" />
     <MESSAGE value="Ajout d'envoie mail et changement de arborécence workshop session.&#10;Ajout des commentaires dans le code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout d'envoie mail et changement de arborécence workshop session.&#10;Ajout des commentaires dans le code" />
+    <MESSAGE value="Mise a jour du README" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mise a jour du README" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/client/src/components/AddWorkshop/index.js">
@@ -840,8 +848,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="330">
-            <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
+          <first_editor relative-caret-position="30">
+            <caret line="2" column="183" selection-start-line="2" selection-start-column="183" selection-end-line="2" selection-end-column="183" />
           </first_editor>
           <second_editor />
         </state>
