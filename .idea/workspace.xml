@@ -2,47 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcd01510-7898-4439-97eb-dda067261e94" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/getSelectWorkshops/getSelectWorkshops.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/getSelectWorkshops/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Auth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Auth.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_constants/admin.constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_constants/admin.constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_constants/alert.constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_constants/alert.constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_constants/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_constants/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_constants/user.constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_constants/user.constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_helpers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_helpers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_services/admin.services.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_services/admin.services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_services/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/_services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/_services/user.service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AddArticle/AddArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddArticle/AddArticle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AddConference/AddConference.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddConference/AddConference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AddSession/AddSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddSession/AddSession.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/AddWorkshop/AddWorkshop.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AddWorkshop/AddWorkshop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Conferences/Conferences.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Conferences/Conferences.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/HomeAdmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/HomeUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/HomeUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ListArticles/ListArticles.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ListArticles/ListArticles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ListConferences/ListConferences.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ListConferences/ListConferences.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ListSessions/ListSessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ListSessions/ListSessions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ListUsersConference/ListUsersConference.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ListUsersConference/ListUsersConference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ListWorkshops/ListWorkshops.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ListWorkshops/ListWorkshops.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Nav/AdminNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Nav/AdminNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Nav/UserNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Nav/UserNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Routes/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Routes/Routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Users/Users.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Users/Users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/getSelectConferences/getSelectConferences.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/getSelectConferences/getSelectConferences.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/getSelectSessions/getSelectSessions.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/getSelectSessions/getSelectSessions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,20 +30,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-435">
+            <state relative-caret-position="-1785">
               <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="50" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
-              <folding>
-                <element signature="e#13#50#0" expanded="true" />
-              </folding>
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="330">
+                <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -124,7 +85,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/components/Routes/index.js" />
         <option value="$PROJECT_DIR$/client/src/components/Routes/WithAuth" />
         <option value="$PROJECT_DIR$/client/src/components/Routes/withAuth" />
         <option value="$PROJECT_DIR$/client/src/components/AddSession/index.js" />
@@ -175,6 +135,7 @@
         <option value="$PROJECT_DIR$/client/src/components/Routes/Routes.js" />
         <option value="$PROJECT_DIR$/client/src/components/Users/Users.js" />
         <option value="$PROJECT_DIR$/client/src/components/UserProfile/UserProfile.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -206,19 +167,6 @@
               <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Application_mobile_React" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Application_mobile_React" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -228,7 +176,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559566694360" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559566993494" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Bureau/Projet_Conference_2017_2018/Base_donnees/confypcs_conference.sql" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -290,7 +238,7 @@
       <workItem from="1559235655561" duration="1252000" />
       <workItem from="1559298744439" duration="3308000" />
       <workItem from="1559306663358" duration="2153000" />
-      <workItem from="1559310893811" duration="4889000" />
+      <workItem from="1559310893811" duration="5204000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout de redux a l'application et gestion des route">
       <created>1551428973490</created>
@@ -362,11 +310,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558203462786</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ajout d'envoie mail et changement de arborécence workshop session.&#10;Ajout des commentaires dans le code">
+      <created>1559566750176</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1559566750176</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248711000" />
+    <option name="totallyTimeSpent" value="249026000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -456,7 +411,8 @@
     <MESSAGE value="Re commit" />
     <MESSAGE value="Ajout de page addSession et addWorkshop" />
     <MESSAGE value="Version 1 final" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 1 final" />
+    <MESSAGE value="Ajout d'envoie mail et changement de arborécence workshop session.&#10;Ajout des commentaires dans le code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout d'envoie mail et changement de arborécence workshop session.&#10;Ajout des commentaires dans le code" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/client/src/components/AddWorkshop/index.js">
@@ -499,14 +455,6 @@
               <element signature="e#0#28#0" expanded="true" />
             </folding>
           </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-315" />
           <second_editor />
         </state>
       </provider>
@@ -862,13 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-435">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/Users/Users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -886,6 +827,23 @@
           <folding>
             <element signature="e#13#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1785">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="330">
+            <caret line="22" column="111" selection-start-line="22" selection-start-column="111" selection-end-line="22" selection-end-column="111" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

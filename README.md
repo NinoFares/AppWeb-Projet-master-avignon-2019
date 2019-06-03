@@ -1,30 +1,4 @@
-# N'oubliez pas de mettre les commentaires a chaque fois que vous travaillez dans un fichier en écrivant : ce que vous avez ajouter, quelque détails, et ce qui reste a faire.
-
-# Semaine 1 :
-
-# Mobile :
-
-    Lier la base de donnée.
-    Gérer l'authentification.
-
-# Web :
-
-    Gérer l'authentification.
-    Gestion des rôles.
-    Gestions des routes.
-    Interface d'inscription.
-
-Pour toute suggestion veuillez les écrire ici.
-
-1 . Ma Premiere suggestion serai de : A chaque fois que vous commencer une partie vous ecrivez votre nom a coté de cette partie en haut
-
-# React Express Starter Pack
-
-> Create full stack apps with React and Express. Run your client and server with a single command.
-
-### Redux Version
-This version does not include Redux
-[Click Here For Redux Version](https://github.com/bradtraversy/react_redux_express_starter)
+# Projet_Master_v2
 
 ## Quick Start
 
@@ -46,18 +20,7 @@ npm run client
 
 # Server runs on http://localhost:5000 and client on http://localhost:3000
 ```
+For making the projet working, you have to download the github projet, run the commandes "npm install & npm run client-install" to install all dependencies and then run the projet with the commande "npm run dev"
 
-# Projet_Master_v2
-
-#Dépendences nécéssaires :
-
-##Serveur :
-     ``` bash
-     npm install mysql
-     const bodyParser = require('body-parser');
-     ```
-##Client :
-     ``` bash
-     npm install react-bootstrap bootstrap
-     npm install axios
-     ```
+Created by : 
+BOUZID Fares & KANE Ababacar.
