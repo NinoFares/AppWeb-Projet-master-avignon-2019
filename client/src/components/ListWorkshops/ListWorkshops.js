@@ -82,7 +82,7 @@ export class ListWorkshops extends Component{
             selectedConf: newConf
         })
 
-        userService.getWorkshopC(newConf)
+        userService.getWorkshop(newConf)
             .then(result => {
                 this.setState({
                     data:result
